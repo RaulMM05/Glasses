@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestion.fct.sceneControllers.PantallaPrincipalController">
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="Usuario">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#lanzarPerfil" text="Perfil usuario" />
+                  <MenuItem mnemonicParsing="false" onAction="#lanzarDetallesRegistro" text="Detalles del registro" />
+                  <MenuItem mnemonicParsing="false" onAction="#lanzarAltaRegistro" text="Alta registro" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Salir">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#lanzarLogin" text="Cerrar sesión" />
+                  <MenuItem mnemonicParsing="false" onAction="#lanzarCerrarApp" text="Cerrar aplicación" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+</BorderPane>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestion.fct.sceneControllers.UnRegistroController">
+   <children>
+      <Label layoutX="206.0" layoutY="14.0" text="Detalle del registro">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#bcbcbc" height="3.0" layoutX="10.0" layoutY="56.0" stroke="#bcbcbc" strokeType="INSIDE" width="581.0" />
+      <Label layoutX="216.0" layoutY="82.0" text="Fecha" />
+      <Label fx:id="lblFecha" layoutX="218.0" layoutY="112.0" prefHeight="17.0" prefWidth="168.0" text="(Fecha)" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="34.0" layoutX="214.0" layoutY="103.0" stroke="#949494" strokeType="INSIDE" width="174.0" />
+      <Label layoutX="216.0" layoutY="143.0" text="Cantidad de horas" />
+      <Label fx:id="lblHoras" layoutX="220.0" layoutY="174.0" prefHeight="17.0" prefWidth="168.0" text="(Horas)" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="34.0" layoutX="213.0" layoutY="166.0" stroke="#949494" strokeType="INSIDE" width="174.0" />
+      <Label layoutX="216.0" layoutY="205.0" text="Descripcion" />
+      <Label fx:id="lblDescripcion" layoutX="219.0" layoutY="238.0" prefHeight="61.0" prefWidth="168.0" text="(Descripcion)" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="69.0" layoutX="214.0" layoutY="231.0" stroke="#949494" strokeType="INSIDE" width="174.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="242.0" layoutX="192.0" layoutY="75.0" stroke="#949494" strokeType="INSIDE" width="223.0" />
+      <Button fx:id="btnVolver" layoutX="255.0" layoutY="329.0" mnemonicParsing="false" onAction="#vovler" prefHeight="34.0" prefWidth="97.0" text="Volver" />
+   </children>
+</AnchorPane>
