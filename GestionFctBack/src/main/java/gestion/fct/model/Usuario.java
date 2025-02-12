@@ -9,5 +9,7 @@ public class Usuario {
 	private Long id;
 	private String nombre;
 	private String contraseña;
+	private String perfil;
+	private 
 	
 }
