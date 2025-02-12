@@ -3,6 +3,7 @@ package gestion.fct.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import gestion.fct.model.Usuario;
 import gestion.fct.repository.FechasRepository;
 import gestion.fct.repository.RegistroRepository;
 import gestion.fct.repository.UsuarioRepository;
@@ -15,5 +16,8 @@ public class UsuarioService {
 	private FechasRepository repoFechas;
 	@Autowired
 	private RegistroRepository repoRegistro;
-	
+
+	public Usuario login(String nombreUsuario, String contraseña) {
+		return null;
+	}
 }
