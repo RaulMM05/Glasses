@@ -2,16 +2,17 @@ package gestion.fct.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 
 @Entity
-public class Usuario{
+public class Registro {
 	@Id
 	private Long id;
-	private String nombreUsuario;
-	private String contraseña;
-	private String tipo;
+	private Integer horas;
+	private String descripcion;
+	@ManyToOne
+	private Alumno alumno;
 	@OneToOne
-	private Perfil perfilAsociado;
-	private Boolean activo;
+	private Fecha fecha;
 }
