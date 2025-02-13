@@ -1,6 +1,7 @@
 package gestion.fct.api;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import org.modelmapper.ModelMapper;
@@ -20,6 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 import gestion.fct.exception.AlumnoNotFoundException;
 import gestion.fct.exception.RegistroNotFoundException;
 import gestion.fct.exception.RegistroServiceException;
+import gestion.fct.exception.TutorNotFoundException;
 import gestion.fct.exception.UserNotFoundException;
 import gestion.fct.exception.UserServiceException;
 import gestion.fct.exception.UserUnauthorizedException;
@@ -57,8 +59,14 @@ public class UsuarioApi {
 	@Operation(summary = "Consultar registros", description = "Consulta todos los registros comprendidos entre dos fechas. Si no se pone alguna, por defecto será inicio y fin.")
 	@GetMapping("/{id}")
 	public List<Registro> consultarRegistros(@PathVariable Long id,
-			@RequestParam(required = false) @DateTimeFormat(pattern = "dd-MM-yyyy") LocalDate desde,
-			@RequestParam(required = false) @DateTimeFormat(pattern = "dd-MM-yyyy") LocalDate hasta) throws AlumnoNotFoundException, RegistroNotFoundException {
+			@RequestParam(required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate desde,
+			@RequestParam(required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate hasta) throws AlumnoNotFoundException, RegistroNotFoundException {
+		if(desde == null) {
+			desde = LocalDate.of(2025, 01, 01);
+		}
+		if(hasta == null) {
+			hasta = LocalDate.of(2026, 01, 30);
+		}
 		return service.consultarRegistros(id, desde, hasta);
 	}
 	
@@ -78,15 +86,15 @@ public class UsuarioApi {
 	}
 	
 	@Operation(summary = "Consultar alumno", description = "Consulta todos los datos de un alumno.")
-	@GetMapping("/{id}")
-	public Alumno consultarAlumno(@PathVariable Long id) {
-//		return service.consultarAlumno(id);
+	@GetMapping("/alumno/{id}")
+	public Alumno consultarAlumno(@PathVariable Long id) throws AlumnoNotFoundException {
+		return service.consultarAlumno(id);
 	}
 	
 	@Operation(summary = "Consultar tutor", description = "Consulta todos los datos de un tutor.")
-	@GetMapping("/{id}")
-	public Tutor consultarTutor(@PathVariable Long id) {
-//		return service.consultarAlumno(id);
+	@GetMapping("/tutor/{id}")
+	public Tutor consultarTutor(@PathVariable Long id) throws TutorNotFoundException {
+		return service.consultarTutor(id);
 	}
 
 }

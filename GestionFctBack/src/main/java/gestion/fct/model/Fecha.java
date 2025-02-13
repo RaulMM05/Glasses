@@ -23,7 +23,7 @@ public class Fecha {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;	
-	@JsonFormat(pattern = "dd-MM-yyyy")
+	@JsonFormat(pattern = "yyyy-MM-dd")
 	@NotNull
 	private LocalDate fecha;
 	@NotNull

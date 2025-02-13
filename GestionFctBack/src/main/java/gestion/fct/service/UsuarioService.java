@@ -76,10 +76,10 @@ public class UsuarioService {
 			throws AlumnoNotFoundException, RegistroNotFoundException {
 		Alumno alumno = repoAlumno.findById(id)
 				.orElseThrow(() -> new AlumnoNotFoundException("No exite ningun alumno con la ID: " + id));
-
+		
 		List<Fecha> fechas = repoFechas.findByFechaBetween(inicio, fin);
 		if (fechas.isEmpty()) {
-			throw new RegistroNotFoundException("No existeb ningun registro entre las fechas indicadas");
+			throw new RegistroNotFoundException("No existe ningun registro entre las fechas indicadas");
 		}
 
 		List<Registro> registros = repoRegistro.findByAlumno(alumno);

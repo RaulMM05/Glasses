@@ -8,6 +8,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
+import jakarta.persistence.Transient;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
@@ -15,11 +16,18 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@DiscriminatorValue("ALUMNO")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Alumno extends Perfil{
+public class Alumno {
+	
+	public static final String DAM = "DAM";
+	public static final String DAW = "DAW";
+	public static final String ASIR = "ASIR";
+	
+	public static final String MARZO = "MARZO";
+	public static final String SEPTIEMBRE = "SEPTIEMBRE";
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -35,12 +43,5 @@ public class Alumno extends Perfil{
 	@OneToOne
 	@JoinColumn(name = "id_empresa")
 	private Empresa empresa;
-	
-	public static final String DAM = "DAM";
-	public static final String DAW = "DAW";
-	public static final String ASIR = "ASIR";
-	
-	public static final String MARZO = "MARZO";
-	public static final String SEPTIEMBRE = "SEPTIEMBRE";
 	
 }
