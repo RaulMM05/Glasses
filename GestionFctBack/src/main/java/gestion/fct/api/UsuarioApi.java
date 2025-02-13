@@ -23,7 +23,9 @@ import gestion.fct.exception.RegistroServiceException;
 import gestion.fct.exception.UserNotFoundException;
 import gestion.fct.exception.UserServiceException;
 import gestion.fct.exception.UserUnauthorizedException;
+import gestion.fct.model.Alumno;
 import gestion.fct.model.Registro;
+import gestion.fct.model.Tutor;
 import gestion.fct.model.Usuario;
 import gestion.fct.model.request.ChangePasswordRequest;
 import gestion.fct.model.request.RegistroRequest;
@@ -73,6 +75,18 @@ public class UsuarioApi {
 	@DeleteMapping
 	public void borrarRegistro(@RequestParam Long id) {
 		service.borrarRegistro(id);
+	}
+	
+	@Operation(summary = "Consultar alumno", description = "Consulta todos los datos de un alumno.")
+	@GetMapping("/{id}")
+	public Alumno consultarAlumno(@PathVariable Long id) {
+//		return service.consultarAlumno(id);
+	}
+	
+	@Operation(summary = "Consultar tutor", description = "Consulta todos los datos de un tutor.")
+	@GetMapping("/{id}")
+	public Tutor consultarTutor(@PathVariable Long id) {
+//		return service.consultarAlumno(id);
 	}
 
 }
