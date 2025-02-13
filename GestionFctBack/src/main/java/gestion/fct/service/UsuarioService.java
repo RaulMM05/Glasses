@@ -10,16 +10,19 @@ import org.springframework.stereotype.Service;
 import gestion.fct.exception.AlumnoNotFoundException;
 import gestion.fct.exception.RegistroNotFoundException;
 import gestion.fct.exception.RegistroServiceException;
+import gestion.fct.exception.TutorNotFoundException;
 import gestion.fct.exception.UserNotFoundException;
 import gestion.fct.exception.UserServiceException;
 import gestion.fct.exception.UserUnauthorizedException;
 import gestion.fct.model.Alumno;
 import gestion.fct.model.Fecha;
 import gestion.fct.model.Registro;
+import gestion.fct.model.Tutor;
 import gestion.fct.model.Usuario;
 import gestion.fct.repository.AlumnoRepository;
 import gestion.fct.repository.FechasRepository;
 import gestion.fct.repository.RegistroRepository;
+import gestion.fct.repository.TutorRepository;
 import gestion.fct.repository.UsuarioRepository;
 
 @Service
@@ -32,6 +35,8 @@ public class UsuarioService {
 	private RegistroRepository repoRegistro;
 	@Autowired
 	private AlumnoRepository repoAlumno;
+	@Autowired
+	private TutorRepository repoTutor;
 
 	public Usuario login(String nombreUsuario, String contraseña)
 			throws UserNotFoundException, UserUnauthorizedException, UserServiceException {
@@ -41,9 +46,13 @@ public class UsuarioService {
 		if (usuario.getActivo() == false) {
 			throw new UserServiceException("El usuario no está disponible");
 		}
-		if (usuario.getPerfilAsociado() == null) {
-			throw new UserServiceException("No hay ningun alumno asociado a este usuario");
+		if (usuario.getTipo().equals(Usuario.ALUMNO)) {
+			repoAlumno.findById(usuario.getIdPerfil()).orElseThrow(() -> new UserServiceException("No hay ningun alumno asociado a este usuario"));
 		}
+		if (usuario.getTipo().equals(Usuario.TUTOR)) {
+			repoTutor.findById(usuario.getIdPerfil()).orElseThrow(() -> new UserServiceException("No hay ningun tutor asociado a este usuario"));
+		}
+		
 		if (!usuario.getContraseña().equals(contraseña)) {
 			throw new UserUnauthorizedException("Contraseña Incorrecta");
 		}
@@ -93,7 +102,7 @@ public class UsuarioService {
 	}
 
 	public Registro crearRegistro(Registro registro) throws RegistroServiceException {
-		List<Registro> registros = repoRegistro.findByAlumno(registro.getAlumno());
+		List<Registro> registros = repoRegistro.findByAlumno((Alumno) registro.getAlumno());
 
 		for (Registro r : registros) {
 			if (r.getFecha().getFecha().equals(registro.getFecha().getFecha())) {
@@ -108,5 +117,12 @@ public class UsuarioService {
 		
 		return repoRegistro.save(registro);
 	}
-
+	
+	public Alumno consultarAlumno(Long id) throws AlumnoNotFoundException {
+		return repoAlumno.findById(id).orElseThrow(() -> new AlumnoNotFoundException("No existe ningun alumno con ID: "+id));
+	}
+	
+	public Tutor consultarTutor(Long id) throws TutorNotFoundException {
+		return repoTutor.findById(id).orElseThrow(() -> new TutorNotFoundException("No existe ningun tutor con ID: "+id));
+	}
 }

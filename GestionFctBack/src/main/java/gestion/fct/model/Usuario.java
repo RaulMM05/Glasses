@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Usuario{
+public class Usuario {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -27,9 +27,10 @@ public class Usuario{
 	private String contraseña;
 	@NotBlank
 	private String tipo;
-	@OneToOne
-	@JoinColumn(name = "id_perfil")
-	private Perfil perfilAsociado;
+	private Long idPerfil;
 	@NotNull
 	private Boolean activo;
+	
+	public static final String ALUMNO = "ALUMNO";
+	public static final String TUTOR = "TUTOR";
 }
