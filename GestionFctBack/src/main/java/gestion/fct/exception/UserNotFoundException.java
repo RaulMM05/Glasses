@@ -1,32 +1,32 @@
 package gestion.fct.exception;
 
-public class UserNotFound extends Exception {
+public class UserNotFoundException extends Exception {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -2891407647004725378L;
 
-	public UserNotFound() {
+	public UserNotFoundException() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public UserNotFound(String message) {
+	public UserNotFoundException(String message) {
 		super(message);
 		// TODO Auto-generated constructor stub
 	}
 
-	public UserNotFound(Throwable cause) {
+	public UserNotFoundException(Throwable cause) {
 		super(cause);
 		// TODO Auto-generated constructor stub
 	}
 
-	public UserNotFound(String message, Throwable cause) {
+	public UserNotFoundException(String message, Throwable cause) {
 		super(message, cause);
 		// TODO Auto-generated constructor stub
 	}
 
-	public UserNotFound(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
+	public UserNotFoundException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
 		super(message, cause, enableSuppression, writableStackTrace);
 		// TODO Auto-generated constructor stub
 	}
