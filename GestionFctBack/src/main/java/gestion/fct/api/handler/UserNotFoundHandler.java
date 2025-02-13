@@ -1,34 +1,3 @@
-sasasasawr3fr						dfefefefefe				
-iuuiiuiu			
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 package gestion.fct.api.handler;
 
 import org.springframework.http.HttpStatus;
