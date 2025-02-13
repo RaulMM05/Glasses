@@ -93,7 +93,7 @@ public class UsuarioService {
 	}
 
 	public Registro crearRegistro(Registro registro) throws RegistroServiceException {
-		List<Registro> registros = repoRegistro.findByAlumno(registro.getAlumno());
+		List<Registro> registros = repoRegistro.findByAlumno((Alumno) registro.getAlumno());
 
 		for (Registro r : registros) {
 			if (r.getFecha().getFecha().equals(registro.getFecha().getFecha())) {
