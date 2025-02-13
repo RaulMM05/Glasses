@@ -1,14 +1,16 @@
 package gestion.fct.service;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import gestion.fct.exception.AlumnoNotFound;
+import gestion.fct.exception.AlumnoNotFoundException;
 import gestion.fct.exception.RegistroNotFounException;
-import gestion.fct.exception.UserNotFound;
+import gestion.fct.exception.RegistroServiceException;
+import gestion.fct.exception.UserNotFoundException;
 import gestion.fct.exception.UserServiceException;
 import gestion.fct.exception.UserUnauthorizeException;
 import gestion.fct.model.Alumno;
@@ -32,9 +34,9 @@ public class UsuarioService {
 	private AlumnoRepository repoAlumno;
 
 	public Usuario login(String nombreUsuario, String contraseña)
-			throws UserNotFound, UserUnauthorizeException, UserServiceException {
+			throws UserNotFoundException, UserUnauthorizeException, UserServiceException {
 		Usuario usuario = repoUser.findByNombreUsuario(nombreUsuario)
-				.orElseThrow(() -> new UserNotFound("No existe ningun usuario con ese nombre"));
+				.orElseThrow(() -> new UserNotFoundException("No existe ningun usuario con ese nombre"));
 
 		if (usuario.getActivo() == false) {
 			throw new UserServiceException("El usuario no está disponible");
@@ -49,9 +51,9 @@ public class UsuarioService {
 	}
 
 	public Usuario cambiarContraseña(Long id, String antiguaContraseña, String nuevaContraseña)
-			throws UserNotFound, UserUnauthorizeException {
+			throws UserNotFoundException, UserUnauthorizeException {
 		Usuario usuario = repoUser.findById(id)
-				.orElseThrow(() -> new UserNotFound("No existe ningun usuario con esta ID: " + id));
+				.orElseThrow(() -> new UserNotFoundException("No existe ningun usuario con esta ID: " + id));
 
 		if (!usuario.getContraseña().equals(antiguaContraseña)) {
 			throw new UserUnauthorizeException("Contraseña Incorrecta");
@@ -62,9 +64,9 @@ public class UsuarioService {
 	}
 
 	public List<Registro> consultarRegistros(Long id, LocalDate inicio, LocalDate fin)
-			throws AlumnoNotFound, RegistroNotFounException {
+			throws AlumnoNotFoundException, RegistroNotFounException {
 		Alumno alumno = repoAlumno.findById(id)
-				.orElseThrow(() -> new AlumnoNotFound("No exite ningun alumno con la ID: " + id));
+				.orElseThrow(() -> new AlumnoNotFoundException("No exite ningun alumno con la ID: " + id));
 
 		List<Fecha> fechas = repoFechas.findByFechaBetween(inicio, fin);
 		if (fechas.isEmpty()) {
@@ -84,10 +86,27 @@ public class UsuarioService {
 
 		return registros;
 	}
-	
+
 	public void borrarRegistro(Long id) {
 		repoRegistro.deleteById(id);
+
+	}
+
+	public Registro crearRegistro(Registro registro) throws RegistroServiceException {
+		List<Registro> registros = repoRegistro.findByAlumno(registro.getAlumno());
+
+		for (Registro r : registros) {
+			if (r.getFecha().getFecha().equals(registro.getFecha().getFecha())) {
+				throw new RegistroServiceException("Ya existe un registro con esa fecha");
+			}
+		}
+
+		if (registro.getHoras().compareTo(new BigDecimal("8")) > 0
+				|| registro.getHoras().compareTo(new BigDecimal("0")) < 0) {
+			throw new RegistroServiceException("El número de horas no es válido");
+		}
 		
+		return repoRegistro.save(registro);
 	}
 
 }

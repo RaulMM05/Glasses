@@ -1,5 +1,7 @@
 package gestion.fct.model;
 
+import java.math.BigDecimal;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -23,7 +25,7 @@ public class Registro {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	@NotNull
-	private Integer horas;
+	private BigDecimal horas;
 	@NotBlank
 	private String descripcion;
 	@ManyToOne(fetch = FetchType.EAGER)
