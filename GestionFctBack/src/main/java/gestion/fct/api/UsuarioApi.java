@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import gestion.fct.exception.AlumnoNotFound;
+import gestion.fct.exception.RegistroNotFounException;
 import gestion.fct.exception.UserNotFound;
 import gestion.fct.exception.UserServiceException;
 import gestion.fct.exception.UserUnauthorizeException;
@@ -43,17 +45,15 @@ public class UsuarioApi {
 
 	@Operation(summary = "Cambiar contraseña", description = "Cambiar contraseña a partir de la ID del usuario y ambas contraseñas en el body")
 	@PutMapping("/{id}")
-	public Usuario cambiarPassword(@PathVariable Long id,@RequestBody ChangePasswordRequest request) {
-//		return service.cambiarContraseña(id, request.getOldPassword(), request.getNewPassword());
-		return null;
+	public Usuario cambiarPassword(@PathVariable Long id,@RequestBody ChangePasswordRequest request) throws UserNotFound, UserUnauthorizeException {
+		return service.cambiarContraseña(id, request.getOldPassword(), request.getNewPassword());
 	}
 	@Operation(summary = "Consultar registros", description = "Consulta todos los registros comprendidos entre dos fechas. Si no se pone alguna, por defecto será inicio y fin.")
 	@GetMapping("/{id}")
 	public List<Registro> consultarRegistros(@PathVariable Long id,
 			@RequestParam(required = false) @DateTimeFormat(pattern = "dd-MM-yyyy") LocalDate desde,
-			@RequestParam(required = false) @DateTimeFormat(pattern = "dd-MM-yyyy") LocalDate hasta) {
-//		return service.consultarRegistros(desde, hasta);
-		return null;
+			@RequestParam(required = false) @DateTimeFormat(pattern = "dd-MM-yyyy") LocalDate hasta) throws AlumnoNotFound, RegistroNotFounException {
+		return service.consultarRegistros(id, desde, hasta);
 	}
 	
 	@Operation(summary = "Crear registro", description = "Crear un registro completo y lo añade al total de registros de ese alumno")
@@ -66,7 +66,7 @@ public class UsuarioApi {
 	@Operation(summary = "Borrar registro", description = "Borra un registro completo y lo elimina del total de registros de ese alumno")
 	@DeleteMapping
 	public void borrarRegistro(@RequestParam Long id) {
-//		service.borrarRegistro(id);
+		service.borrarRegistro(id);
 	}
 
 }
