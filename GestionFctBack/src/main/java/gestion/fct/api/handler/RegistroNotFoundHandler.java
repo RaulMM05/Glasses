@@ -5,12 +5,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
-import gestion.fct.exception.UserNotFoundException;
+import gestion.fct.exception.RegistroNotFoundException;
 @ControllerAdvice
-public class UserNotFoundHandler {
+public class RegistroNotFoundHandler {
 
-	@ExceptionHandler (UserNotFoundException.class)
-	public ResponseEntity<String> handle(UserNotFoundException ex){
+	@ExceptionHandler (RegistroNotFoundException.class)
+	public ResponseEntity<String> handle(RegistroNotFoundException ex){
 		return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());
 	}
 }

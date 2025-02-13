@@ -3,6 +3,7 @@ package gestion.fct.api;
 import java.time.LocalDate;
 import java.util.List;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -15,14 +16,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import gestion.fct.exception.AlumnoNotFound;
-import gestion.fct.exception.RegistroNotFounException;
-import gestion.fct.exception.UserNotFound;
+import gestion.fct.exception.AlumnoNotFoundException;
+import gestion.fct.exception.RegistroNotFoundException;
+import gestion.fct.exception.RegistroServiceException;
+import gestion.fct.exception.UserNotFoundException;
 import gestion.fct.exception.UserServiceException;
-import gestion.fct.exception.UserUnauthorizeException;
+import gestion.fct.exception.UserUnauthorizedException;
 import gestion.fct.model.Registro;
 import gestion.fct.model.Usuario;
 import gestion.fct.model.request.ChangePasswordRequest;
+import gestion.fct.model.request.RegistroRequest;
 import gestion.fct.service.UsuarioService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
@@ -39,28 +42,30 @@ public class UsuarioApi {
 	@GetMapping
 	public Usuario login(@RequestParam @Size(max = 50) String nombreUsuario,
 			@RequestParam @Size(max = 100) String contraseña)
-			throws UserNotFound, UserUnauthorizeException, UserServiceException {
+			throws UserNotFoundException, UserUnauthorizedException, UserServiceException {
 		return service.login(nombreUsuario, contraseña);
 	}
 
 	@Operation(summary = "Cambiar contraseña", description = "Cambiar contraseña a partir de la ID del usuario y ambas contraseñas en el body")
 	@PutMapping("/{id}")
-	public Usuario cambiarPassword(@PathVariable Long id,@RequestBody ChangePasswordRequest request) throws UserNotFound, UserUnauthorizeException {
+	public Usuario cambiarPassword(@PathVariable Long id,@RequestBody ChangePasswordRequest request) throws UserNotFoundException, UserUnauthorizedException {
 		return service.cambiarContraseña(id, request.getOldPassword(), request.getNewPassword());
 	}
 	@Operation(summary = "Consultar registros", description = "Consulta todos los registros comprendidos entre dos fechas. Si no se pone alguna, por defecto será inicio y fin.")
 	@GetMapping("/{id}")
 	public List<Registro> consultarRegistros(@PathVariable Long id,
 			@RequestParam(required = false) @DateTimeFormat(pattern = "dd-MM-yyyy") LocalDate desde,
-			@RequestParam(required = false) @DateTimeFormat(pattern = "dd-MM-yyyy") LocalDate hasta) throws AlumnoNotFound, RegistroNotFounException {
+			@RequestParam(required = false) @DateTimeFormat(pattern = "dd-MM-yyyy") LocalDate hasta) throws AlumnoNotFoundException, RegistroNotFoundException {
 		return service.consultarRegistros(id, desde, hasta);
 	}
 	
 	@Operation(summary = "Crear registro", description = "Crear un registro completo y lo añade al total de registros de ese alumno")
 	@PostMapping
-	public Registro crearRegistro(@RequestBody Registro registro) {
-//		return service.crearRegistro(registro);
-		return null;
+	public Registro crearRegistro(@RequestBody RegistroRequest registro) throws RegistroServiceException {
+		Registro regist = new Registro();
+		ModelMapper mapper = new ModelMapper();
+		mapper.map(registro, regist);
+		return service.crearRegistro(regist);
 	}
 	
 	@Operation(summary = "Borrar registro", description = "Borra un registro completo y lo elimina del total de registros de ese alumno")

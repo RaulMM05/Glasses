@@ -2,16 +2,15 @@ package gestion.fct.api.handler;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
-import gestion.fct.exception.UserNotFound;
+import gestion.fct.exception.UserServiceException;
 @ControllerAdvice
-public class AlumnoNotFound {
+public class UserServiceHandler {
 
-	@ExceptionHandler (UserNotFound.class)
-	public ResponseEntity<String> handle(UserNotFound ex){
+	@ExceptionHandler (UserServiceException.class)
+	public ResponseEntity<String> handle(UserServiceException ex){
 		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ex.getMessage());
 	}
 }
