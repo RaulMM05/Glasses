@@ -1,9 +1,5 @@
 package gestion.fct.model;
 
-import java.time.LocalDate;
-
-import com.fasterxml.jackson.annotation.JsonFormat;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -11,8 +7,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -28,7 +22,7 @@ public class Alumno extends Perfil{
 	private String ciclo;
 	private String evaluación;
 	private Integer año;
-	@ManyToOne
+	@ManyToOne(targetEntity = Tutor.class)
 	@JoinColumn(name = "id_tutor")
 	private Tutor tutor;
 	@OneToOne

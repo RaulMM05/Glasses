@@ -28,7 +28,7 @@ public class Registro {
 	private BigDecimal horas;
 	@NotBlank
 	private String descripcion;
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne(fetch = FetchType.EAGER, targetEntity = Alumno.class)
 	@JoinColumn(name = "id_alumno")
 	private Alumno alumno;
 	@OneToOne
