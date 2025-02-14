@@ -62,10 +62,10 @@ public class UsuarioApi {
 			@RequestParam(required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate desde,
 			@RequestParam(required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate hasta) throws AlumnoNotFoundException, RegistroNotFoundException {
 		if(desde == null) {
-			desde = LocalDate.of(2025, 01, 01);
+			desde = LocalDate.of(1999, 01, 01);
 		}
 		if(hasta == null) {
-			hasta = LocalDate.of(2026, 01, 30);
+			hasta = LocalDate.of(2100, 01, 30);
 		}
 		return service.consultarRegistros(id, desde, hasta);
 	}
