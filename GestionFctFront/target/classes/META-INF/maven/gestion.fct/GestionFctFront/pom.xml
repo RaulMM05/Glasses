@@ -6,6 +6,11 @@
   <name>GestionFctFront</name>
   
   <dependencies>
+  		<dependency>
+  			<groupId>gestion.fct</groupId>
+    		<artifactId>GestionFctBackClient</artifactId>
+    		<version>1.0.0</version>
+    	</dependency>
   		<!-- https://mvnrepository.com/artifact/commons-codec/commons-codec -->
 		<dependency>
 		    <groupId>commons-codec</groupId>

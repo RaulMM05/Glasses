@@ -4,6 +4,9 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.api.UsuarioApiApi;
+
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -22,7 +25,7 @@ public class AppController {
 	public static final String FXML_PANTALLAPRINCIPAL= "scene/PantallaPrincipal.fxml";
 	public static final String FXML_PERFIL = "scene/Perfil.fxml";
 	public static final String FXML_UNREGISTRO= "scene/UnRegistro.fxml";
-	
+	public UsuarioApiApi cliente;
 	public static Stage primaryStage;
 
 	public AppController() {
@@ -32,6 +35,13 @@ public class AppController {
 	public AppController(Stage stage) {
 			AppController.primaryStage = stage;
 		}
+	
+	public void initialize() {
+		ApiClient client = new ApiClient();
+		client.setBasePath("http://localhost:8080");
+		client.setApiKey("glasses");
+		cliente = new UsuarioApiApi(client);
+	}
 	
 	public AppController changeScene(String fxml) {
 		try {
