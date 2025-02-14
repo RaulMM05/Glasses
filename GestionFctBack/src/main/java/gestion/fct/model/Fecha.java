@@ -1,11 +1,16 @@
 package gestion.fct.model;
 
+import java.time.LocalDate;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,21 +19,20 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Usuario {
+public class Fecha {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-	@NotBlank
-	private String nombreUsuario;
-	@NotBlank
-	private String contraseña;
-	@NotBlank
-	private String tipo;
-	@NotBlank
-	private Long idPerfil;
+	private Long id;	
+	@JsonFormat(pattern = "yyyy-MM-dd")
 	@NotNull
-	private Boolean activo;
+	private LocalDate fecha;
+	@NotNull
+	@Size(max = 4, min = 4 )
+	private Integer añoCurso;
+	@NotBlank
+	private String evaluacion;
 	
-	public static final String ALUMNO = "ALUMNO";
-	public static final String TUTOR = "TUTOR";
+	public static final String MARZO = "MARZO";
+	public static final String SEPTIEMBRE = "SEPTIEMBRE";
+	
 }

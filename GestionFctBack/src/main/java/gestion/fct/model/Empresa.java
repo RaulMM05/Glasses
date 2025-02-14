@@ -4,8 +4,10 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,21 +16,18 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Usuario {
+public class Empresa {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	@NotBlank
-	private String nombreUsuario;
+	private String nombreComercial;
 	@NotBlank
-	private String contraseña;
+	private String nombreTutorLaboral;
+	@Email
 	@NotBlank
-	private String tipo;
-	@NotBlank
-	private Long idPerfil;
+	private String emailTutorLaboral;
+	@Size(max = 15)
 	@NotNull
-	private Boolean activo;
-	
-	public static final String ALUMNO = "ALUMNO";
-	public static final String TUTOR = "TUTOR";
+	private Integer tlfTutorLaboral;
 }
