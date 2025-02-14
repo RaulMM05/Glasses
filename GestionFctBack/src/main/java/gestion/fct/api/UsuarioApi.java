@@ -34,6 +34,7 @@ import gestion.fct.model.request.RegistroRequest;
 import gestion.fct.service.UsuarioService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.Size;
 
 @RestController
@@ -56,7 +57,7 @@ public class UsuarioApi {
 
 	@Operation(summary = "Cambiar contraseña", description = "Cambiar contraseña a partir de la ID del usuario y ambas contraseñas en el body")
 	@PutMapping("/{id}")
-	public Usuario cambiarPassword(@PathVariable Long id, @RequestBody ChangePasswordRequest request)
+	public Usuario cambiarPassword(@PathVariable Long id, @RequestBody @Valid ChangePasswordRequest request)
 			throws UserNotFoundException, UserUnauthorizedException {
 		logger.info("Solicitando cambio de contraseña para usuario con ID: {}", id);
 		return service.cambiarContraseña(id, request.getOldPassword(), request.getNewPassword());

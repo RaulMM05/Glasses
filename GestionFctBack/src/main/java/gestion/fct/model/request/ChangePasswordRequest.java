@@ -7,10 +7,10 @@ import lombok.Data;
 public class ChangePasswordRequest {
 
 	@NotBlank
-	@Size(max =100)
+	@Size(min = 8)
 	private String oldPassword;
 	@NotBlank
-	@Size(max =100)
+	@Size(min = 8, message = "La contraseña debe ser de un mínimo de 8 caracteres")
 	private String newPassword;
 
 }

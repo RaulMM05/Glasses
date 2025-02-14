@@ -137,7 +137,7 @@ public class UsuarioService {
 			}
 
 			if (registro.getHoras().compareTo(new BigDecimal("8")) > 0
-					|| registro.getHoras().compareTo(new BigDecimal("0")) < 0) {
+					|| registro.getHoras().compareTo(new BigDecimal("0")) <= 0) {
 				throw new RegistroServiceException("El número de horas no es válido");
 			}
 
