@@ -1,0 +1,86 @@
+/* 🎨 Fondo en tono gris-azulado más oscuro */
+.fondo {
+    -fx-background-color: #e3ecf3;
+}
+
+/* Línea divisoria debajo del título con el gradiente actualizado */
+.linea {
+    -fx-stroke: linear-gradient(to right, #0d47a1 1%, #42a5f5 50%, #0d47a1 99%);
+    -fx-stroke-width: 2;
+}
+
+/* Estilo del título "Iniciar sesión" */
+.iniciarSesion {
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1c3550;
+    -fx-font-family: "Arial";
+}
+
+/* Estilo del título principal */
+.titulo {
+    -fx-font-size: 23px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1c3550;
+    -fx-font-family: "Arial";
+}
+
+/* Panel de inicio de sesión con el gradiente actualizado */
+.panelNP {
+    -fx-stroke: linear-gradient(to right, #0d47a1 1%, #42a5f5 50%, #0d47a1 99%);
+    -fx-stroke-width: 2;
+    -fx-border-width: 2px; /* Grosor del borde igual al de la línea */
+    -fx-border-radius: 8px; /* Bordes redondeados */
+    -fx-background-radius: 12px; /* Esquinas redondeadas */
+    -fx-padding: 20px;
+    -fx-effect: dropshadow(three-pass-box, rgba(70, 130, 180, 0.4), 12, 0, 0, 6); /* Sombra azulada */
+}
+
+/* Etiquetas "Nombre" y "Contraseña" */
+.nombre, .password {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1c3550;
+}
+
+/* Campos de texto */
+.campoNombre, .campoPassword {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #6ea8dc;
+    -fx-border-width: 1.5px;
+    -fx-border-radius: 5px;
+    -fx-padding: 8px;
+    -fx-font-size: 14px;
+    -fx-text-fill: #333;
+}
+
+/* Efecto al hacer clic en los campos */
+.campoNombre:focused, .campoPassword:focused {
+    -fx-border-color: #0f4b8d;
+    -fx-border-width: 2px;
+    -fx-effect: dropshadow(three-pass-box, rgba(15, 75, 141, 0.3), 5, 0, 0, 2);
+}
+
+/* Botón "Continuar" con el gradiente actualizado */
+.continuar {
+    -fx-background-color: linear-gradient(to right, #0d47a1 1%, #42a5f5 50%, #0d47a1 99%);
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-padding: 10px 15px;
+    -fx-background-radius: 8px;
+    -fx-border-radius: 8px;
+    -fx-border-color: transparent;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(three-pass-box, rgba(30, 136, 229, 0.3), 5, 0, 0, 2);
+}
+
+/* Efecto hover en el botón con el gradiente actualizado */
+.continuar:hover {
+    -fx-background-color: linear-gradient(to right, #0d47a1 1%, #42a5f5 50%, #0d47a1 99%);
+}
+
+/* Efecto clic en el botón */
+.continuar:pressed {
+    -fx-background-color: #0d47a1; /* Fondo oscuro para el clic */
+}

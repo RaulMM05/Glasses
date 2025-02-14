@@ -6,68 +6,74 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestion.fct.sceneControllers.PerfilController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="fondo" stylesheets="@../css/Perfil.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestion.fct.sceneControllers.PerfilController">
    <children>
-      <Label layoutX="274.0" layoutY="-2.0" text="Perfil">
+      <Label layoutX="271.0" layoutY="9.0" styleClass="titulo" text="Perfil">
          <font>
-            <Font size="23.0" />
+            <Font size="27.0" />
          </font>
       </Label>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="200.0" layoutX="394.0" layoutY="103.0" stroke="#949494" strokeType="INSIDE" width="166.0" />
-      <Label fx:id="lblNombre" layoutX="52.0" layoutY="54.0" text="PruebaNombre" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="200.0" layoutX="42.0" layoutY="103.0" stroke="#949494" strokeType="INSIDE" width="166.0" />
-      <Label alignment="CENTER" layoutX="57.0" layoutY="109.0" text="Ciclo">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff80" height="200.0" layoutX="395.0" layoutY="103.0" stroke="#949494" strokeType="INSIDE" styleClass="tarjetas" width="166.0" />
+      <Label fx:id="lblNombre" layoutX="50.0" layoutY="44.0" prefHeight="39.0" prefWidth="531.0" text="PruebaNombre">
          <font>
-            <Font size="15.0" />
-         </font>
-      </Label>
-      <Label fx:id="lblCurso" layoutX="57.0" layoutY="143.0" text="a" />
-      <Label alignment="CENTER" layoutX="57.0" layoutY="172.0" text="Evaluación">
+            <Font size="27.0" />
+         </font></Label>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff80" height="200.0" layoutX="43.0" layoutY="103.0" stroke="#949494" strokeType="INSIDE" styleClass="tarjetas" width="166.0" />
+      <Label alignment="CENTER" layoutX="57.0" layoutY="109.0" styleClass="titulos" text="Ciclo">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <Label fx:id="lblEvaluacion" layoutX="57.0" layoutY="206.0" text="a" />
-      <Label alignment="CENTER" layoutX="58.0" layoutY="236.0" text="Año cursado">
+      <Label fx:id="lblCurso" layoutX="57.0" layoutY="143.0" styleClass="datos" text="a" />
+      <Label alignment="CENTER" layoutX="57.0" layoutY="172.0" styleClass="titulos" text="Evaluación">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <Label fx:id="lblAñoCursado" layoutX="58.0" layoutY="270.0" text="a" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="135.0" layoutX="218.0" layoutY="103.0" stroke="#949494" strokeType="INSIDE" width="166.0" />
-      <Label alignment="CENTER" layoutX="253.0" layoutY="109.0" text="Tutor docente">
+      <Label fx:id="lblEvaluacion" layoutX="57.0" layoutY="206.0" styleClass="datos" text="a" />
+      <Label alignment="CENTER" layoutX="58.0" layoutY="236.0" styleClass="titulos" text="Año cursado">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <Label fx:id="lblTutorDecente" layoutX="253.0" layoutY="143.0" text="a" />
-      <Label alignment="CENTER" layoutX="254.0" layoutY="172.0" prefWidth="61.0" text="Empresa">
+      <Label fx:id="lblAñoCursado" layoutX="58.0" layoutY="268.0" styleClass="datos" text="a" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff80" height="135.0" layoutX="218.0" layoutY="103.0" stroke="#949494" strokeType="INSIDE" styleClass="tarjetas" width="166.0" />
+      <Label alignment="CENTER" layoutX="253.0" layoutY="109.0" styleClass="titulos" text="Tutor docente">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <Label fx:id="lblEmpresa" layoutX="254.0" layoutY="207.0" text="a" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#bcbcbc" height="3.0" layoutX="10.0" layoutY="87.0" stroke="#bcbcbc" strokeType="INSIDE" width="581.0" />
-      <Label alignment="CENTER" layoutX="431.0" layoutY="109.0" text="Total horas">
+      <Label fx:id="lblTutorDecente" layoutX="253.0" layoutY="143.0" styleClass="datos" text="a" />
+      <Label alignment="CENTER" layoutX="254.0" layoutY="172.0" prefWidth="61.0" styleClass="titulos" text="Empresa">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <Label fx:id="lblHorasTotal" layoutX="431.0" layoutY="143.0" text="a" />
-      <Label alignment="CENTER" layoutX="431.0" layoutY="172.0" text="Horas realizadas">
+      <Label fx:id="lblEmpresa" layoutX="254.0" layoutY="207.0" styleClass="datos" text="a" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#bcbcbc" height="3.0" layoutX="10.0" layoutY="87.0" stroke="#bcbcbc" strokeType="INSIDE" styleClass="linea" width="581.0" />
+      <Label alignment="CENTER" layoutX="414.0" layoutY="109.0" styleClass="titulos" text="Total horas">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <Label fx:id="lblHorasRealizadas" layoutX="431.0" layoutY="206.0" text="a" />
-      <Label alignment="CENTER" layoutX="432.0" layoutY="236.0" text="Horas por realizar">
+      <Label fx:id="lblHorasTotal" layoutX="414.0" layoutY="143.0" styleClass="datos" text="a" />
+      <Label alignment="CENTER" layoutX="414.0" layoutY="172.0" styleClass="titulos" text="Horas realizadas">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <Label fx:id="lblHorasPorRealizar" layoutX="432.0" layoutY="270.0" text="a" />
-      <Button fx:id="btnDetallesRegistros" layoutX="394.0" layoutY="313.0" mnemonicParsing="false" onAction="#lanzarDetallesRegistros" prefHeight="34.0" prefWidth="166.0" text="Detalles de los registros" />
-      <Button fx:id="btnCambiarPass" layoutX="42.0" layoutY="313.0" mnemonicParsing="false" onAction="#lanzarCambiarPass" prefHeight="34.0" prefWidth="166.0" text="Cambiar contraseña" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#bcbcbc" height="3.0" layoutX="10.0" layoutY="36.0" stroke="#bcbcbc" strokeType="INSIDE" width="581.0" />
+      <Label fx:id="lblHorasRealizadas" layoutX="414.0" layoutY="206.0" styleClass="datos" text="a" />
+      <Label alignment="CENTER" layoutX="415.0" layoutY="236.0" styleClass="titulos" text="Horas por realizar">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblHorasPorRealizar" layoutX="415.0" layoutY="268.0" styleClass="datos" text="a" />
+      <Button fx:id="btnDetallesRegistros" layoutX="386.0" layoutY="313.0" mnemonicParsing="false" onAction="#lanzarDetallesRegistros" prefHeight="47.0" prefWidth="183.0" styleClass="botones" text="Registros">
+         <font>
+            <Font size="13.0" />
+         </font></Button>
+      <Button fx:id="btnCambiarPass" layoutX="35.0" layoutY="312.0" mnemonicParsing="false" onAction="#lanzarCambiarPass" prefHeight="47.0" prefWidth="183.0" styleClass="botones" text="Cambiar contraseña" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#bcbcbc" height="3.0" layoutX="10.0" layoutY="36.0" stroke="#bcbcbc" strokeType="INSIDE" styleClass="linea" width="581.0" />
    </children>
 </AnchorPane>

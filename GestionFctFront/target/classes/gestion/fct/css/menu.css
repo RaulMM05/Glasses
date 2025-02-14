@@ -1,0 +1,65 @@
+/* Estilo general de fondo */
+.fondo {
+    -fx-background-color: #e3ecf3;
+}
+
+/* Estilo de la barra de menú */
+.menu {
+    -fx-background-color: #42a5f5; /* Azul más claro */
+    -fx-font-size: 14px; /* Tamaño original del texto */
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+
+/* Estilo del menú principal */
+.subMenu {
+    -fx-background-color: #42a5f5; /* Azul más claro */
+    -fx-font-size: 14px; /* Tamaño original del texto */
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+
+/* Estilo de los items del menú */
+.item {
+    -fx-background-color: transparent;
+    -fx-text-fill: #f4f9fd;
+    -fx-padding: 8px 15px; /* Tamaño original de padding */
+}
+
+/* Efecto hover en los items del menú */
+.item:hover {
+    -fx-background-color: #64b5f6; /* Azul aún más claro para el hover */
+    -fx-text-fill: white;
+}
+
+/* Títulos de secciones dentro del BorderPane */
+.titulo {
+    -fx-font-size: 23px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1c3550;
+    -fx-font-family: "Arial";
+}
+
+/* Estilo para los botones */
+.botones {
+    -fx-background-color: linear-gradient(to right, #42a5f5 1%, #64b5f6 50%, #42a5f5 99%); /* Azul claro en gradiente */
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-padding: 10px 15px;
+    -fx-background-radius: 8px;
+    -fx-border-radius: 8px;
+    -fx-border-color: transparent;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(three-pass-box, rgba(30, 136, 229, 0.3), 5, 0, 0, 2);
+}
+
+/* Efecto hover en botones */
+.botones:hover {
+    -fx-background-color: linear-gradient(to right, #42a5f5 1%, #64b5f6 50%, #42a5f5 99%);
+}
+
+/* Efecto clic en botones */
+.botones:pressed {
+    -fx-background-color: #42a5f5; /* Azul claro para el estado pressed */
+}

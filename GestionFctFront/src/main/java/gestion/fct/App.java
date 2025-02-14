@@ -13,8 +13,8 @@ public class App extends Application{
 	@Override
 	public void start(Stage primaryStage) throws IOException {
 		AppController app = new AppController(primaryStage);
-	  //app.changeScene(AppController.FXML_REGISTER);
-		primaryStage.setResizable(false);
+	    app.changeScene(AppController.FXML_LOGIN);
+	    primaryStage.setResizable(false);
 		primaryStage.initStyle(StageStyle.TRANSPARENT);
 		primaryStage.show();
 	}

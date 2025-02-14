@@ -5,21 +5,21 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestion.fct.sceneControllers.PantallaPrincipalController">
+<BorderPane fx:id="panel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="447.0" prefWidth="600.0" styleClass="border" stylesheets="@../css/menu.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestion.fct.sceneControllers.PantallaPrincipalController">
    <top>
-      <MenuBar BorderPane.alignment="CENTER">
+      <MenuBar styleClass="menu" BorderPane.alignment="CENTER">
         <menus>
-          <Menu mnemonicParsing="false" text="Usuario">
+          <Menu mnemonicParsing="false" styleClass="subMenu" text="Usuario">
             <items>
-              <MenuItem mnemonicParsing="false" onAction="#lanzarPerfil" text="Perfil usuario" />
-                  <MenuItem mnemonicParsing="false" onAction="#lanzarDetallesRegistro" text="Detalles del registro" />
-                  <MenuItem mnemonicParsing="false" onAction="#lanzarAltaRegistro" text="Alta registro" />
+              <MenuItem mnemonicParsing="false" onAction="#lanzarPerfil" styleClass="item" text="Perfil usuario" />
+                  <MenuItem mnemonicParsing="false" onAction="#lanzarDetallesRegistro" styleClass="item" text="Detalles del registro" />
+                  <MenuItem mnemonicParsing="false" onAction="#lanzarAltaRegistro" styleClass="item" text="Alta registro" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Salir">
+          <Menu mnemonicParsing="false" styleClass="subMenu" text="Salir">
             <items>
-              <MenuItem mnemonicParsing="false" onAction="#lanzarLogin" text="Cerrar sesión" />
-                  <MenuItem mnemonicParsing="false" onAction="#lanzarCerrarApp" text="Cerrar aplicación" />
+              <MenuItem mnemonicParsing="false" onAction="#lanzarLogin" styleClass="item" text="Cerrar sesión" />
+                  <MenuItem mnemonicParsing="false" onAction="#lanzarCerrarApp" styleClass="item" text="Cerrar aplicación" />
             </items>
           </Menu>
         </menus>

@@ -8,22 +8,21 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestion.fct.sceneControllers.DetallesRegistroController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="fondo" stylesheets="@../css/DetallesRegistro.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestion.fct.sceneControllers.DetallesRegistroController">
    <children>
-      <Label layoutX="179.0" layoutY="14.0" text="Detalles de los registros">
+      <Label layoutX="170.0" layoutY="20.0" styleClass="titulo" text="Detalles de los registros">
          <font>
             <Font size="23.0" />
          </font>
       </Label>
-      <Button fx:id="btnAlta" layoutX="303.0" layoutY="356.0" mnemonicParsing="false" onAction="#lanzarAltaRegistro" prefHeight="34.0" prefWidth="181.0" text="Dar de Alta un registro" />
-      <Button fx:id="btnPerfil" layoutX="118.0" layoutY="355.0" mnemonicParsing="false" onAction="#lanzarPerfil" prefHeight="34.0" prefWidth="181.0" text="Volver al perfil" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#bcbcbc" height="3.0" layoutX="10.0" layoutY="56.0" stroke="#bcbcbc" strokeType="INSIDE" width="581.0" />
-      <TableView fx:id="tbRegistros" layoutX="117.0" layoutY="78.0" prefHeight="271.0" prefWidth="368.0">
+      <Button fx:id="btnAlta" layoutX="303.0" layoutY="345.0" mnemonicParsing="false" onAction="#lanzarAltaRegistro" prefHeight="34.0" prefWidth="181.0" styleClass="botones" text="Alta Registro" />
+      <Button fx:id="btnPerfil" layoutX="118.0" layoutY="345.0" mnemonicParsing="false" onAction="#lanzarPerfil" prefHeight="34.0" prefWidth="181.0" styleClass="botones" text="Volver al perfil" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#bcbcbc" height="3.0" layoutX="10.0" layoutY="56.0" stroke="#bcbcbc" strokeType="INSIDE" styleClass="linea" width="581.0" />
+      <TableView fx:id="tbRegistros" layoutX="117.0" layoutY="68.0" prefHeight="271.0" prefWidth="368.0" styleClass="tabla">
         <columns>
-          <TableColumn fx:id="tcFecha" prefWidth="75.0" text="Fecha" />
-          <TableColumn fx:id="tcHoras" prefWidth="111.0" text="Horas registradas" />
-            <TableColumn fx:id="tcDescripcion" prefWidth="181.0" text="Descripcion" />
+          <TableColumn fx:id="tcFecha" prefWidth="75.0" styleClass="columnaImpar" text="Fecha" />
+          <TableColumn fx:id="tcHoras" prefWidth="111.0" styleClass="columnaPar" text="Horas" />
+            <TableColumn fx:id="tcDescripcion" prefWidth="181.0" styleClass="columnaImpar" text="Descripcion" />
         </columns>
       </TableView>
    </children>

@@ -1,0 +1,101 @@
+/* Fondo con tono gris-azulado oscuro */
+.fondo {
+    -fx-background-color: #e3ecf3;
+}
+
+/* Línea divisoria con gradiente */
+.linea {
+    -fx-stroke: linear-gradient(to right, #0d47a1 1%, #42a5f5 50%, #0d47a1 99%);
+    -fx-stroke-width: 2;
+}
+
+/* Estilo del título principal */
+.titulo {
+    -fx-font-size: 23px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1c3550;
+    -fx-font-family: "Arial";
+}
+
+.tarjetas {
+    -fx-stroke: linear-gradient(to right, #0d47a1 1%, #42a5f5 50%, #0d47a1 99%);
+    -fx-stroke-width: 2;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 12px;
+    -fx-padding: 10px;
+    -fx-effect: dropshadow(three-pass-box, rgba(70, 130, 180, 0.4), 12, 0, 0, 6);
+}
+
+/* Estilo para los botones */
+.botones {
+    -fx-background-color: linear-gradient(to right, #0d47a1 1%, #42a5f5 50%, #0d47a1 99%); /* Azul en gradiente */
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-padding: 10px 15px;
+    -fx-background-radius: 8px;
+    -fx-border-radius: 8px;
+    -fx-border-color: transparent;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(three-pass-box, rgba(30, 136, 229, 0.3), 5, 0, 0, 2);
+}
+
+/* Efecto hover en botones */
+.botones:hover {
+    -fx-background-color: linear-gradient(to right, #0d47a1 1%, #42a5f5 50%, #0d47a1 99%);
+}
+
+/* Efecto clic en botones */
+.botones:pressed {
+    -fx-background-color: #0d47a1; /* Azul más oscuro para el clic */
+}
+
+/* Estilo para la tabla */
+.tabla {
+    -fx-background-color: white;
+    -fx-border-color: #d0d0d0;
+    -fx-border-width: 1px;
+    -fx-padding: 5px;
+    -fx-effect: dropshadow(three-pass-box, rgba(70, 130, 180, 0.2), 5, 0, 0, 5);
+}
+
+/* Estilo para las columnas de la tabla */
+.columnaImpar {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1c3550;
+}
+
+.columnaPar {
+    -fx-font-size: 14px;
+    -fx-font-weight: normal;
+    -fx-text-fill: #333;
+}
+
+/* Estilo para los botones de acción en la página */
+.botones {
+    -fx-background-color: linear-gradient(to right, #0d47a1 1%, #42a5f5 50%, #0d47a1 99%);
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-padding: 10px 15px;
+    -fx-background-radius: 8px;
+    -fx-border-radius: 8px;
+    -fx-border-color: transparent;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(three-pass-box, rgba(30, 136, 229, 0.3), 5, 0, 0, 2);
+}
+
+/* Línea de separación */
+.linea {
+    -fx-stroke: linear-gradient(to right, #0d47a1 1%, #42a5f5 50%, #0d47a1 99%);
+    -fx-stroke-width: 2;
+}
+
+/* Títulos de secciones en la tabla o interfaz */
+.titulo {
+    -fx-font-size: 23px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1c3550;
+    -fx-font-family: "Arial";
+}

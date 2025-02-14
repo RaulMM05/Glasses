@@ -1,0 +1,117 @@
+/* Fondo con tono gris-azulado más claro */
+.fondo {
+    -fx-background-color: #e3ecf3;
+}
+
+/* Línea divisoria con gradiente */
+.linea {
+    -fx-stroke: linear-gradient(to right, #0d47a1 1%, #42a5f5 50%, #0d47a1 99%);
+    -fx-stroke-width: 2;
+}
+
+/* Estilo para las tarjetas de información */
+.tarjetas {
+    -fx-stroke: linear-gradient(to right, #0d47a1 1%, #42a5f5 50%, #0d47a1 99%);
+    -fx-stroke-width: 2;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 12px;
+    -fx-padding: 10px;
+    -fx-effect: dropshadow(three-pass-box, rgba(70, 130, 180, 0.4), 12, 0, 0, 6);
+}
+
+/* Estilo del título principal */
+.titulo {
+    -fx-font-size: 23px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1c3550;
+    -fx-font-family: "Arial";
+}
+
+/* Títulos de las secciones */
+.titulos {
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1c3550;
+}
+
+/* Datos mostrados en pantalla */
+.datos {
+    -fx-font-size: 14px;
+    -fx-text-fill: #333;
+}
+
+/* Botones con gradiente */
+.botones {
+    -fx-background-color: linear-gradient(to right, #0d47a1 1%, #42a5f5 50%, #0d47a1 99%);
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-padding: 10px 15px;
+    -fx-background-radius: 8px;
+    -fx-border-radius: 8px;
+    -fx-border-color: transparent;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(three-pass-box, rgba(30, 136, 229, 0.3), 5, 0, 0, 2);
+}
+
+/* Efecto hover en botones */
+.botones:hover {
+    -fx-background-color: linear-gradient(to right, #0d47a1 1%, #42a5f5 50%, #0d47a1 99%);
+}
+
+/* Efecto clic en botones */
+.botones:pressed {
+    -fx-background-color: #0d47a1;
+}
+
+/* Campos de contraseña */
+.campoTf {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #6ea8dc;
+    -fx-border-width: 1.5px;
+    -fx-border-radius: 5px;
+    -fx-padding: 8px;
+    -fx-font-size: 14px;
+    -fx-text-fill: #333;
+}
+
+/* Efecto al hacer clic en los campos de texto */
+.campoTf:focused {
+    -fx-border-color: #0f4b8d;
+    -fx-border-width: 2px;
+    -fx-effect: dropshadow(three-pass-box, rgba(15, 75, 141, 0.3), 5, 0, 0, 2);
+}
+
+/* Estilo para el DatePicker */
+.campoFecha {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #6ea8dc;
+    -fx-border-width: 1.5px;
+    -fx-border-radius: 5px;
+    -fx-padding: 8px;
+    -fx-font-size: 14px;
+    -fx-text-fill: #333;
+}
+
+.campoFecha:focused {
+    -fx-border-color: #0f4b8d;
+    -fx-border-width: 2px;
+    -fx-effect: dropshadow(three-pass-box, rgba(15, 75, 141, 0.3), 5, 0, 0, 2);
+}
+
+/* Estilo para el TextArea */
+.campoTa {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #6ea8dc;
+    -fx-border-width: 1.5px;
+    -fx-border-radius: 5px;
+    -fx-padding: 8px;
+    -fx-font-size: 14px;
+    -fx-text-fill: #333;
+}
+
+.campoTa:focused {
+    -fx-border-color: #0f4b8d;
+    -fx-border-width: 2px;
+    -fx-effect: dropshadow(three-pass-box, rgba(15, 75, 141, 0.3), 5, 0, 0, 2);
+}

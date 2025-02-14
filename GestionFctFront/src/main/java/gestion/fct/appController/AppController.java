@@ -15,7 +15,13 @@ import gestion.fct.App;
 
 public class AppController {
 	
-	public static final String FXML_COMBOBOX = "/inicio/Combobox.fxml";
+	public static final String FXML_ALTAREGISTRO = "scene/AltaRegistro.fxml";
+	public static final String FXML_CAMBIARPASSWORD = "scene/CambiarPassword.fxml";
+	public static final String FXML_DETALLESREGISTRO = "scene/DetallesRegistro.fxml";
+	public static final String FXML_LOGIN = "scene/Login.fxml";
+	public static final String FXML_PANTALLAPRINCIPAL= "scene/PantallaPrincipal.fxml";
+	public static final String FXML_PERFIL = "scene/Perfil.fxml";
+	public static final String FXML_UNREGISTRO= "scene/UnRegistro.fxml";
 	
 	public static Stage primaryStage;
 
@@ -89,4 +95,5 @@ public class AppController {
 		
 		ButtonType respuesta = alerta.showAndWait().orElse(ButtonType.CANCEL);
 	}
+	
 }
