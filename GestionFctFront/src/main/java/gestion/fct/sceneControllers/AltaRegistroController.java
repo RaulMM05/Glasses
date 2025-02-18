@@ -12,8 +12,11 @@ import org.openapitools.client.model.RegistroRequest;
 import gestion.fct.appController.AppController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Spinner;
+import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
@@ -25,6 +28,9 @@ public class AltaRegistroController extends AppController {
 
 	@FXML
 	private Button btnGuardar;
+
+	@FXML
+	private Spinner<Double> spinHoras;
 
 	@FXML
 	private DatePicker dpFecha;
@@ -40,6 +46,7 @@ public class AltaRegistroController extends AppController {
 	@Override
 	public void initialize() {
 		panel = (BorderPane) getParam("panel");
+		configurarSpinnerHoras();
 	}
 
 	@FXML
@@ -57,7 +64,7 @@ public class AltaRegistroController extends AppController {
 		fecha.setFecha(fechaNueva);
 		fecha.setEvaluacion(alumno.getEvaluación());
 		fecha.setAñoCurso(alumno.getAño());
-		fecha.setId();
+		fecha.setId(null);
 		registro.setHoras(horas);
 		registro.setDescripcion(taDescripcion.getText());
 		registro.setFecha(fecha);
@@ -68,6 +75,22 @@ public class AltaRegistroController extends AppController {
 			error(e.getLocalizedMessage());
 		}
 		panel.setCenter(loadScene(FXML_DETALLESREGISTRO));
+	}
+
+	void configurarSpinnerHoras() {
+		SpinnerValueFactory.DoubleSpinnerValueFactory valueFactory = new SpinnerValueFactory.DoubleSpinnerValueFactory(
+				0.5, 8.0, 0.5, 0.5);
+		spinHoras.setValueFactory(valueFactory);
+		spinHoras.getEditor().setAlignment(Pos.CENTER);
+		spinHoras.valueProperty().addListener((observable, oldValue, newValue) -> {
+			if (newValue != null) {
+				if (newValue <= 0) {
+					spinHoras.getValueFactory().setValue(0.5);
+				} else if (newValue > 8) {
+					spinHoras.getValueFactory().setValue(8.0);
+				}
+			}
+		});
 	}
 
 }
