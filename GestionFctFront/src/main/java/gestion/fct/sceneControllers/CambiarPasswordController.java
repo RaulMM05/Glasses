@@ -21,12 +21,6 @@ public class CambiarPasswordController extends AppController{
     private Button btnPerfil;
 
     @FXML
-    private Label lblSeguridad;
-
-    @FXML
-    private ProgressBar pbBarraSeguridad;
-
-    @FXML
     private PasswordField tpActual;
 
     @FXML

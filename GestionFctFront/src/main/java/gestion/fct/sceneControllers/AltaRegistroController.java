@@ -4,6 +4,11 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
+import org.openapitools.client.ApiException;
+import org.openapitools.client.model.Alumno;
+import org.openapitools.client.model.Fecha;
+import org.openapitools.client.model.RegistroRequest;
+
 import gestion.fct.appController.AppController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -29,21 +34,26 @@ public class AltaRegistroController extends AppController{
 
     @FXML
     private TextField tfCantidadDeHoras;
+    
+    private BorderPane panel;
+    
+    @Override
+    public void initialize() {
+    	panel = (BorderPane) getParam("panel");
+    }
+    	
+    
 
     @FXML
     void cancelar(ActionEvent event) {
-    	BorderPane panel = (BorderPane) getParam("panel");
     	panel.setCenter(loadScene(FXML_DETALLESREGISTRO));
     }
 
-    @FXML
-    void fecha(ActionEvent event) {
-
-    }
 
     @FXML
     void guardar(ActionEvent event) {
-    	RegistroRequest registo = new RegistroRequest();
+    	Alumno alumno = (Alumno) getParam("alumno");
+    	RegistroRequest registro = new RegistroRequest();
     	Fecha fecha = new Fecha();
     	BigDecimal horas = new BigDecimal(tfCantidadDeHoras.getText());
     	LocalDate fechaNueva = dpFecha.getValue();
@@ -51,8 +61,12 @@ public class AltaRegistroController extends AppController{
     	registro.setHoras(horas);
     	registro.setDescripcion(taDescripcion.getText());
     	registro.setFecha(fecha);
-    	cliente.altaRegistro(registro);
-    	BorderPane panel = (BorderPane) getParam("panel");
+    	registro.setAlumno(alumno);
+    	try {
+			cliente.crearRegistro(registro);
+		} catch (ApiException e) {
+			error(e.getResponseBody());
+		}
     	panel.setCenter(loadScene(FXML_DETALLESREGISTRO));
     }
 
