@@ -202,22 +202,14 @@ paths:
     get:
       description: Consulta la ID de la fecha que se recibe por parámetros.
       operationId: consultarFecha
-      parameters:
-      - explode: true
-        in: query
-        name: fecha
-        required: true
-        schema:
-          format: date
-          type: string
-        style: form
       responses:
         "200":
           content:
             '*/*':
               schema:
-                format: int64
-                type: integer
+                items:
+                  $ref: '#/components/schemas/Fecha'
+                type: array
           description: OK
       security:
       - Authorization: []

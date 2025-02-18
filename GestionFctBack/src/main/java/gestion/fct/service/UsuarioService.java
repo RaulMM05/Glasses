@@ -2,6 +2,7 @@ package gestion.fct.service;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -169,9 +170,17 @@ public class UsuarioService {
 			throw e;
 		}
 	}
-	
+
 	public List<Fecha> consultarFechas() throws UserServiceException {
 		logger.info("Consultando todas las fechas");
-		return repoFechas.findAll();
+		List<Fecha> fechas = repoFechas.findAll();
+		List<Fecha> fechasOcupadas = new ArrayList<Fecha>();
+		repoRegistro.findAll().forEach(r -> fechasOcupadas.add(r.getFecha()));
+		for (Fecha fecha : fechas) {
+			if (fechasOcupadas.contains(fecha)) {
+				fechas.remove(fecha);
+			}
+		}
+		return fechas;
 	}
 }
