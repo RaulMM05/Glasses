@@ -31,7 +31,7 @@ public class Registro {
 	@ManyToOne
 	@JoinColumn(name = "id_alumno")
 	private Alumno alumno;
-	@OneToOne(cascade = CascadeType.PERSIST)
+	@OneToOne
 	@JoinColumn(name = "id_fecha")
 	private Fecha fecha;
 }

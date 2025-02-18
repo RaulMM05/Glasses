@@ -24,7 +24,7 @@ public class Usuario {
 	private String contraseña;
 	@NotBlank
 	private String tipo;
-	@NotBlank
+
 	private Long idPerfil;
 	@NotNull
 	private Boolean activo;

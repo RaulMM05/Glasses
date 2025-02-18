@@ -113,6 +113,7 @@ public class UsuarioApi {
 	@Operation(summary = "Consultar fecha", description = "Consulta la ID de la fecha que se recibe por parámetros.")
 	@GetMapping("/fecha")
 	public Long consultarFecha(@RequestParam(required = true) @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate fecha) {
+		System.out.println(fecha);
 		logger.info("Consultando la ID de la fecha recibida: ", fecha);
 		return service.consultarFecha(fecha);
 	}

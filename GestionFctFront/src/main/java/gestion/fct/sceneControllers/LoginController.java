@@ -26,10 +26,10 @@ public class LoginController extends AppController {
 
 	@FXML
 	void login(ActionEvent event) {
-		String nombre = tfNombre.getText();// tpPass.getText()
-		String passwordCifrada = DigestUtils.sha256Hex("1234");
-		try {// nombre
-			Usuario user = cliente.login("pepe", passwordCifrada);
+		String nombre = tfNombre.getText();
+		String passwordCifrada = DigestUtils.sha256Hex(tpPass.getText());
+		try {
+			Usuario user = cliente.login(nombre, passwordCifrada);
 			if (user != null) {
 				if (user.getTipo().equals("ALUMNO")) {
 					Alumno alumno = cliente.consultarAlumno(user.getIdPerfil());
