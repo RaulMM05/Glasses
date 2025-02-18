@@ -18,7 +18,6 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 
 public class AltaRegistroController extends AppController {
@@ -38,9 +37,6 @@ public class AltaRegistroController extends AppController {
 	@FXML
 	private TextArea taDescripcion;
 
-	@FXML
-	private TextField tfCantidadDeHoras;
-
 	private BorderPane panel;
 
 	@Override
@@ -56,25 +52,24 @@ public class AltaRegistroController extends AppController {
 
 	@FXML
 	void guardar(ActionEvent event) {
-		Alumno alumno = (Alumno) getParam("alumno");
-		RegistroRequest registro = new RegistroRequest();
-		Fecha fecha = new Fecha();
-		BigDecimal horas = new BigDecimal(tfCantidadDeHoras.getText());
-		LocalDate fechaNueva = dpFecha.getValue();
-		fecha.setFecha(fechaNueva);
-		fecha.setEvaluacion(alumno.getEvaluación());
-		fecha.setAñoCurso(alumno.getAño());
-		fecha.setId(null);
-		registro.setHoras(horas);
-		registro.setDescripcion(taDescripcion.getText());
-		registro.setFecha(fecha);
-		registro.setAlumno(alumno);
 		try {
+			Alumno alumno = (Alumno) getParam("alumno");
+			RegistroRequest registro = new RegistroRequest();
+			Fecha fecha = new Fecha();
+			LocalDate fechaNueva = dpFecha.getValue();
+			fecha.setFecha(fechaNueva);
+			fecha.setEvaluacion(alumno.getEvaluación());
+			fecha.setAñoCurso(alumno.getAño());
+			fecha.setId(cliente.consultarFecha(fechaNueva));
+			registro.setHoras(new BigDecimal(spinHoras.getValue()));
+			registro.setDescripcion(taDescripcion.getText());
+			registro.setFecha(fecha);
+			registro.setAlumno(alumno);
+			panel.setCenter(loadScene(FXML_DETALLESREGISTRO));
 			cliente.crearRegistro(registro);
 		} catch (ApiException e) {
 			error(e.getLocalizedMessage());
 		}
-		panel.setCenter(loadScene(FXML_DETALLESREGISTRO));
 	}
 
 	void configurarSpinnerHoras() {
