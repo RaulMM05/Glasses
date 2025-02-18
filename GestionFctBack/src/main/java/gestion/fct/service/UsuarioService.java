@@ -169,4 +169,9 @@ public class UsuarioService {
 			throw e;
 		}
 	}
+	
+	public Fecha consultarFecha(LocalDate date) {
+		logger.info("Consultando id de la fecha: {}", date);
+		return repoFechas.findByFecha(date);
+	}
 }
