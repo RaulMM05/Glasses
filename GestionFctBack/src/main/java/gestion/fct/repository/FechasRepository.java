@@ -12,6 +12,4 @@ import java.time.LocalDate;
 public interface FechasRepository extends JpaRepository<Fecha, Long>{
 	
 	public List<Fecha> findByFechaBetween(LocalDate inicio, LocalDate fin);
-	
-	public Fecha findByFecha(LocalDate fecha);
 }

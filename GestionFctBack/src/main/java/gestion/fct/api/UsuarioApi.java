@@ -26,6 +26,7 @@ import gestion.fct.exception.UserNotFoundException;
 import gestion.fct.exception.UserServiceException;
 import gestion.fct.exception.UserUnauthorizedException;
 import gestion.fct.model.Alumno;
+import gestion.fct.model.Fecha;
 import gestion.fct.model.Registro;
 import gestion.fct.model.Tutor;
 import gestion.fct.model.Usuario;
@@ -112,9 +113,7 @@ public class UsuarioApi {
 	
 	@Operation(summary = "Consultar fecha", description = "Consulta la ID de la fecha que se recibe por parámetros.")
 	@GetMapping("/fecha")
-	public Long consultarFecha(@RequestParam(required = true) @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate fecha) throws UserServiceException {
-		System.out.println(fecha);
-		logger.info("Consultando la ID de la fecha recibida: ", fecha);
-		return service.consultarFecha(fecha);
+	public List<Fecha> consultarFecha() throws UserServiceException {
+		return service.consultarFechas();
 	}
 }
