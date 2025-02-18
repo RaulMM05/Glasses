@@ -198,6 +198,34 @@ paths:
       - usuario-api
       x-accepts:
       - '*/*'
+  /usuario/fecha:
+    get:
+      description: Consulta la ID de la fecha que se recibe por parámetros.
+      operationId: consultarFecha
+      parameters:
+      - explode: true
+        in: query
+        name: fecha
+        required: true
+        schema:
+          format: date
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                format: int64
+                type: integer
+          description: OK
+      security:
+      - Authorization: []
+      summary: Consultar fecha
+      tags:
+      - usuario-api
+      x-accepts:
+      - '*/*'
   /usuario/alumno/{id}:
     get:
       description: Consulta todos los datos de un alumno.

@@ -468,6 +468,136 @@ public class UsuarioApiApi {
         return localVarCall;
     }
     /**
+     * Build call for consultarFecha
+     * @param fecha  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call consultarFechaCall(LocalDate fecha, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/usuario/fecha";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (fecha != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fecha", fecha));
+        }
+
+        final String[] localVarAccepts = {
+            "*/*"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "Authorization" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call consultarFechaValidateBeforeCall(LocalDate fecha, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'fecha' is set
+        if (fecha == null) {
+            throw new ApiException("Missing the required parameter 'fecha' when calling consultarFecha(Async)");
+        }
+
+        return consultarFechaCall(fecha, _callback);
+
+    }
+
+    /**
+     * Consultar fecha
+     * Consulta la ID de la fecha que se recibe por parámetros.
+     * @param fecha  (required)
+     * @return Long
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public Long consultarFecha(LocalDate fecha) throws ApiException {
+        ApiResponse<Long> localVarResp = consultarFechaWithHttpInfo(fecha);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Consultar fecha
+     * Consulta la ID de la fecha que se recibe por parámetros.
+     * @param fecha  (required)
+     * @return ApiResponse&lt;Long&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Long> consultarFechaWithHttpInfo(LocalDate fecha) throws ApiException {
+        okhttp3.Call localVarCall = consultarFechaValidateBeforeCall(fecha, null);
+        Type localVarReturnType = new TypeToken<Long>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Consultar fecha (asynchronously)
+     * Consulta la ID de la fecha que se recibe por parámetros.
+     * @param fecha  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call consultarFechaAsync(LocalDate fecha, final ApiCallback<Long> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = consultarFechaValidateBeforeCall(fecha, _callback);
+        Type localVarReturnType = new TypeToken<Long>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for consultarRegistros
      * @param id  (required)
      * @param desde  (optional)

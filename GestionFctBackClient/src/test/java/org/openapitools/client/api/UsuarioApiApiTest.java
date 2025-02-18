@@ -81,6 +81,20 @@ public class UsuarioApiApiTest {
     }
 
     /**
+     * Consultar fecha
+     *
+     * Consulta la ID de la fecha que se recibe por parámetros.
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void consultarFechaTest() throws ApiException {
+        LocalDate fecha = null;
+        Long response = api.consultarFecha(fecha);
+        // TODO: test validations
+    }
+
+    /**
      * Consultar registros
      *
      * Consulta todos los registros comprendidos entre dos fechas.
