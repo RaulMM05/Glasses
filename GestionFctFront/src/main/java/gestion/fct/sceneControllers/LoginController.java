@@ -2,9 +2,10 @@ package gestion.fct.sceneControllers;
 
 import org.apache.commons.codec.digest.DigestUtils;
 import org.openapitools.client.ApiException;
+import org.openapitools.client.model.Alumno;
+import org.openapitools.client.model.Tutor;
 import org.openapitools.client.model.Usuario;
 
-import ceu.dam.ad.api.user.client.model.User;
 import gestion.fct.appController.AppController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -25,23 +26,22 @@ public class LoginController extends AppController {
 
 	@FXML
 	void login(ActionEvent event) {
-		String nombre = tfNombre.getText();
-		String passwordCifrada = DigestUtils.sha256Hex(tpPass.getText());
-		try {
-			Usuario user = cliente.login(nombre, passwordCifrada);
-			if (user.getTipo().equals("ALUMNO")) {
-				cliente.consultarAlumno(user.getIdPerfil());
-			} else if (user.getTipo().equals("TUTOR")) {
-				cliente.consultarTutor(user.getIdPerfil());
-			}
+		String nombre = tfNombre.getText();//tpPass.getText()
+		String passwordCifrada = DigestUtils.sha256Hex("1234");
+		try {//nombre
+			Usuario user = cliente.login("pepe", passwordCifrada);
 			if (user != null) {
-				addParam("usuario", user);
-				changeScene(FXML_PANTALLAPRINCIPAL);
-				System.out.println("funca");
+				if (user.getTipo().equals("ALUMNO")) {
+					Alumno alumno = cliente.consultarAlumno(user.getIdPerfil());
+					addParam("alumno", alumno);
+					changeScene(FXML_PANTALLAPRINCIPAL);
+				} else if (user.getTipo().equals("TUTOR")) {
+					Tutor tutor = cliente.consultarTutor(user.getIdPerfil());
+					addParam("tutor", tutor);
+					changeScene(FXML_PANTALLAPRINCIPAL);
+				}
 			}
 		} catch (ApiException e) {
-			System.out.println(e.getCode());
-			System.out.println(e.getLocalizedMessage());
 			if (e.getCode() == 0) {
 				error("down");
 			} else {

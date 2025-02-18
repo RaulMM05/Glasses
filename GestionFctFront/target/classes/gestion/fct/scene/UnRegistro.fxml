@@ -18,11 +18,11 @@
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#bcbcbc" height="3.0" layoutX="10.0" layoutY="56.0" stroke="#bcbcbc" strokeType="INSIDE" styleClass="linea" width="581.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff7f" height="269.0" layoutX="163.0" layoutY="69.0" stroke="#949494" strokeType="INSIDE" styleClass="tarjetas" width="281.0" />
       <Label layoutX="195.0" layoutY="79.0" styleClass="titulos" text="Fecha" />
-      <TextField fx:id="tfFecha" disable="true" layoutX="193.0" layoutY="108.0" prefHeight="40.0" prefWidth="222.0" styleClass="campoTf" />
+      <TextField fx:id="tfFecha" editable="false" layoutX="193.0" layoutY="108.0" prefHeight="40.0" prefWidth="222.0" styleClass="campoTf" />
       <Label layoutX="195.0" layoutY="156.0" styleClass="titulos" text="Cantidad de horas" />
-      <TextField fx:id="tfCantidadDeHoras" disable="true" layoutX="193.0" layoutY="183.0" prefHeight="40.0" prefWidth="222.0" styleClass="campoTf" />
+      <TextField fx:id="tfCantidadDeHoras" editable="false" layoutX="193.0" layoutY="183.0" prefHeight="40.0" prefWidth="222.0" styleClass="campoTf" />
       <Label layoutX="195.0" layoutY="228.0" styleClass="titulos" text="Descripcion" />
-      <TextArea fx:id="taDescripcion" disable="true" layoutX="195.0" layoutY="256.0" prefHeight="69.0" prefWidth="222.0" styleClass="campoTa" />
+      <TextArea fx:id="taDescripcion" editable="false" layoutX="195.0" layoutY="256.0" prefHeight="69.0" prefWidth="222.0" styleClass="campoTa" />
       <Button fx:id="btnCancelar1" layoutX="170.0" layoutY="342.0" mnemonicParsing="false" onAction="#cancelar" prefHeight="47.0" prefWidth="128.0" styleClass="botones" text="Cancelar" />
       <Button fx:id="btnBorrar" layoutX="309.0" layoutY="342.0" mnemonicParsing="false" onAction="#borrarRegistro" prefHeight="47.0" prefWidth="128.0" styleClass="botones" text="Borrar" />
    </children>

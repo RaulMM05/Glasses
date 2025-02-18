@@ -5,7 +5,7 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane fx:id="panel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="447.0" prefWidth="600.0" styleClass="border" stylesheets="@../css/menu.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestion.fct.sceneControllers.PantallaPrincipalController">
+<BorderPane fx:id="panel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="433.0" prefWidth="600.0" styleClass="border" stylesheets="@../css/menu.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestion.fct.sceneControllers.PantallaPrincipalController">
    <top>
       <MenuBar styleClass="menu" BorderPane.alignment="CENTER">
         <menus>

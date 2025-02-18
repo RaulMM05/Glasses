@@ -25,7 +25,7 @@ public class AppController {
 	public static final String FXML_PANTALLAPRINCIPAL= "scene/PantallaPrincipal.fxml";
 	public static final String FXML_PERFIL = "scene/Perfil.fxml";
 	public static final String FXML_UNREGISTRO= "scene/UnRegistro.fxml";
-	public UsuarioApiApi cliente;
+	public static UsuarioApiApi cliente;
 	public static Stage primaryStage;
 
 	public AppController() {

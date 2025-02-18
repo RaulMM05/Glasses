@@ -18,7 +18,7 @@
       </Label>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#bcbcbc" height="3.0" layoutX="10.0" layoutY="56.0" stroke="#bcbcbc" strokeType="INSIDE" styleClass="linea" width="581.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff7f" height="269.0" layoutX="163.0" layoutY="69.0" stroke="#949494" strokeType="INSIDE" styleClass="tarjetas" width="281.0" />
-      <DatePicker fx:id="dpFecha" layoutX="193.0" layoutY="105.0" onAction="#fecha" styleClass="campoFecha" />
+      <DatePicker fx:id="dpFecha" layoutX="193.0" layoutY="105.0" styleClass="campoFecha" />
       <Label layoutX="195.0" layoutY="79.0" styleClass="titulos" text="Fecha" />
       <Label layoutX="195.0" layoutY="158.0" styleClass="titulos" text="Cantidad de horas" />
       <TextField fx:id="tfCantidadDeHoras" layoutX="193.0" layoutY="185.0" prefHeight="40.0" prefWidth="222.0" styleClass="campoTf" />

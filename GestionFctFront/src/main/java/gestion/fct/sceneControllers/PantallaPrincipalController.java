@@ -9,6 +9,10 @@ public class PantallaPrincipalController extends AppController{
 
     @FXML
     private BorderPane panel;
+    
+    public void initialize(){
+    	addParam("panel", panel);
+    }
 
   
 	@FXML
@@ -35,7 +39,7 @@ public class PantallaPrincipalController extends AppController{
     @FXML
     void lanzarPerfil(ActionEvent event) {
     	panel.setCenter(loadScene(FXML_PERFIL));
-    	addParam("panel", panel);
+    	
     }
 
 }

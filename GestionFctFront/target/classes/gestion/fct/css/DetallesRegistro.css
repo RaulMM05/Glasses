@@ -82,3 +82,7 @@
     -fx-text-fill: #1c3550;
     -fx-background-color: #e3ecf3;  /* Fondo del encabezado de la tabla */
 }
+
+.columna-centrada{
+    -fx-alignment: CENTER;
+}

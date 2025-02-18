@@ -2,6 +2,7 @@ package gestion.fct.model;
 
 import java.math.BigDecimal;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -30,7 +31,7 @@ public class Registro {
 	@ManyToOne
 	@JoinColumn(name = "id_alumno")
 	private Alumno alumno;
-	@OneToOne
+	@OneToOne(cascade = CascadeType.PERSIST)
 	@JoinColumn(name = "id_fecha")
 	private Fecha fecha;
 }
