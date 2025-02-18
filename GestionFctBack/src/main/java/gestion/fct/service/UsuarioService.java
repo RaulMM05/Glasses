@@ -176,11 +176,8 @@ public class UsuarioService {
 		List<Fecha> fechas = repoFechas.findAll();
 		List<Fecha> fechasOcupadas = new ArrayList<Fecha>();
 		repoRegistro.findAll().forEach(r -> fechasOcupadas.add(r.getFecha()));
-		for (Fecha fecha : fechas) {
-			if (fechasOcupadas.contains(fecha)) {
-				fechas.remove(fecha);
-			}
-		}
+		fechas.removeIf(f -> fechasOcupadas.contains(f));
+		
 		return fechas;
 	}
 }

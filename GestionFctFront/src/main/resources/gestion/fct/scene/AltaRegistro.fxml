@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Spinner?>
 <?import javafx.scene.control.TextArea?>
@@ -18,8 +18,8 @@
       </Label>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#bcbcbc" height="3.0" layoutX="10.0" layoutY="56.0" stroke="#bcbcbc" strokeType="INSIDE" styleClass="linea" width="581.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff7f" height="269.0" layoutX="163.0" layoutY="69.0" stroke="#949494" strokeType="INSIDE" styleClass="tarjetas" width="281.0" />
-      <DatePicker fx:id="dpFecha" layoutX="193.0" layoutY="105.0" styleClass="campoFecha" />
       <Label layoutX="195.0" layoutY="79.0" styleClass="titulos" text="Fecha" />
+      <ComboBox fx:id="cbFechas" layoutX="193.0" layoutY="105.0" prefHeight="50.0" prefWidth="222.0" styleClass="campoFecha" />
       <Label layoutX="195.0" layoutY="158.0" styleClass="titulos" text="Cantidad de horas" />
       <Spinner fx:id="spinHoras" layoutX="193.0" layoutY="181.0" prefHeight="25.0" prefWidth="222.0" styleClass="campoTf" />
       <Label layoutX="195.0" layoutY="230.0" styleClass="titulos" text="Descripcion" />

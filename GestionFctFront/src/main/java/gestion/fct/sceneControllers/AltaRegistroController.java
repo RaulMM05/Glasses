@@ -3,6 +3,8 @@ package gestion.fct.sceneControllers;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import org.openapitools.client.ApiException;
 import org.openapitools.client.model.Alumno;
@@ -10,10 +12,13 @@ import org.openapitools.client.model.Fecha;
 import org.openapitools.client.model.RegistroRequest;
 
 import gestion.fct.appController.AppController;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
@@ -32,17 +37,20 @@ public class AltaRegistroController extends AppController {
 	private Spinner<Double> spinHoras;
 
 	@FXML
-	private DatePicker dpFecha;
+	private ComboBox<LocalDate> cbFechas;
 
 	@FXML
 	private TextArea taDescripcion;
 
 	private BorderPane panel;
 
+	private List<Fecha> listaFechas;
+
 	@Override
 	public void initialize() {
 		panel = (BorderPane) getParam("panel");
 		configurarSpinnerHoras();
+		cargarFechasEnComboBox();
 	}
 
 	@FXML
@@ -56,11 +64,11 @@ public class AltaRegistroController extends AppController {
 			Alumno alumno = (Alumno) getParam("alumno");
 			RegistroRequest registro = new RegistroRequest();
 			Fecha fecha = new Fecha();
-			LocalDate fechaNueva = dpFecha.getValue();
+			LocalDate fechaNueva = cbFechas.getValue();
 			fecha.setFecha(fechaNueva);
 			fecha.setEvaluacion(alumno.getEvaluación());
 			fecha.setAñoCurso(alumno.getAño());
-			fecha.setId(cliente.consultarFecha(fechaNueva));
+			fecha.setId(obtenerId(fechaNueva));
 			registro.setHoras(new BigDecimal(spinHoras.getValue()));
 			registro.setDescripcion(taDescripcion.getText());
 			registro.setFecha(fecha);
@@ -86,6 +94,28 @@ public class AltaRegistroController extends AppController {
 				}
 			}
 		});
+	}
+
+	public void cargarFechasEnComboBox() {
+		try {
+			listaFechas = cliente.consultarFecha();
+			System.out.println(listaFechas);
+			List<LocalDate> fechas = listaFechas.stream().map(Fecha::getFecha).collect(Collectors.toList());
+			ObservableList<LocalDate> observableFechas = FXCollections.observableArrayList(fechas);
+			cbFechas.setItems(observableFechas);
+		} catch (ApiException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public Long obtenerId(LocalDate fecha) {
+		Long id = 0L;
+		for (Fecha f : listaFechas) {
+			if (f.getFecha().equals(fecha)) {
+				id = f.getId();
+			}
+		}
+		return id;
 	}
 
 }
