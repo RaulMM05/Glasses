@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * Registro
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-18T19:54:35.974239100+01:00[Europe/Madrid]", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-18T20:24:57.942233400+01:00[Europe/Madrid]", comments = "Generator version: 7.11.0")
 public class Registro {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)

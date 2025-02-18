@@ -297,7 +297,6 @@ components:
       required:
       - activo
       - contraseña
-      - idPerfil
       - nombreUsuario
       - tipo
     Alumno:

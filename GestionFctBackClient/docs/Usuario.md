@@ -11,7 +11,7 @@
 |**nombreUsuario** | **String** |  |  |
 |**contraseña** | **String** |  |  |
 |**tipo** | **String** |  |  |
-|**idPerfil** | **Long** |  |  |
+|**idPerfil** | **Long** |  |  [optional] |
 |**activo** | **Boolean** |  |  |
 
 

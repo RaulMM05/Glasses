@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * Usuario
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-18T19:54:35.974239100+01:00[Europe/Madrid]", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-18T20:24:57.942233400+01:00[Europe/Madrid]", comments = "Generator version: 7.11.0")
 public class Usuario {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -72,7 +72,7 @@ public class Usuario {
 
   public static final String SERIALIZED_NAME_ID_PERFIL = "idPerfil";
   @SerializedName(SERIALIZED_NAME_ID_PERFIL)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private Long idPerfil;
 
   public static final String SERIALIZED_NAME_ACTIVO = "activo";
@@ -159,7 +159,7 @@ public class Usuario {
   }
 
 
-  public Usuario idPerfil(@javax.annotation.Nonnull Long idPerfil) {
+  public Usuario idPerfil(@javax.annotation.Nullable Long idPerfil) {
     this.idPerfil = idPerfil;
     return this;
   }
@@ -168,12 +168,12 @@ public class Usuario {
    * Get idPerfil
    * @return idPerfil
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public Long getIdPerfil() {
     return idPerfil;
   }
 
-  public void setIdPerfil(@javax.annotation.Nonnull Long idPerfil) {
+  public void setIdPerfil(@javax.annotation.Nullable Long idPerfil) {
     this.idPerfil = idPerfil;
   }
 
@@ -264,7 +264,6 @@ public class Usuario {
     openapiRequiredFields.add("nombreUsuario");
     openapiRequiredFields.add("contraseña");
     openapiRequiredFields.add("tipo");
-    openapiRequiredFields.add("idPerfil");
     openapiRequiredFields.add("activo");
   }
 

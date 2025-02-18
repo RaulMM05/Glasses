@@ -170,9 +170,12 @@ public class UsuarioService {
 		}
 	}
 	
-	public Long consultarFecha(LocalDate date) {
+	public Long consultarFecha(LocalDate date) throws UserServiceException {
 		logger.info("Consultando id de la fecha: {}", date);
 		Fecha fecha =  repoFechas.findByFecha(date);
+		if(fecha == null) {
+			throw new UserServiceException("Fecha no válida, seleccione otra fecha");
+		}
 		return fecha.getId();
 	}
 }
