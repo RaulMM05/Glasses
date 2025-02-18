@@ -52,7 +52,7 @@ public class PerfilController extends AppController {
 	private Label lblTutorDecente;
 
 	public void initialize() {
-			obtenerDatos();
+		obtenerDatos();
 	}
 
 	@FXML
@@ -73,27 +73,27 @@ public class PerfilController extends AppController {
 		for (Registro registro : lista) {
 			sumaHoras = sumaHoras.add(registro.getHoras());
 		}
-		return sumaHoras.setScale(2,RoundingMode.HALF_UP);
+		return sumaHoras.setScale(2, RoundingMode.HALF_UP);
 	}
 
-	public void obtenerDatos(){
+	public void obtenerDatos() {
 		try {
-		Alumno alumno = (Alumno) getParam("alumno");
-		lblAñoCursado.setText(alumno.getAño().toString());
-		lblCurso.setText(alumno.getCiclo());
-		lblEmpresa.setText(alumno.getEmpresa().getNombreComercial());
-		lblEvaluacion.setText(alumno.getEvaluación());
-		BigDecimal horasTotales = new BigDecimal(370);
-		BigDecimal horasRealizadas;
+			Alumno alumno = (Alumno) getParam("alumno");
+			lblAñoCursado.setText(alumno.getAño().toString());
+			lblCurso.setText(alumno.getCiclo());
+			lblEmpresa.setText(alumno.getEmpresa().getNombreComercial());
+			lblEvaluacion.setText(alumno.getEvaluación());
+			BigDecimal horasTotales = new BigDecimal(370);
+			BigDecimal horasRealizadas;
 			horasRealizadas = contarHoras(alumno);
-		BigDecimal horasRestantes = horasTotales.subtract(horasRealizadas);
-		BigDecimal porcentaje = horasRealizadas.multiply(new BigDecimal(100)).divide(horasTotales, 2,
-				RoundingMode.HALF_UP);
-		lblHorasPorRealizar.setText(horasRestantes.toString()+ " horas");
-		lblHorasRealizadas.setText(horasRealizadas + " horas  " + porcentaje + "%");
-		lblHorasTotal.setText(horasTotales.toString()+ " horas");
-		lblNombre.setText(alumno.getNombreCompleto());
-		lblTutorDecente.setText(alumno.getEmpresa().getNombreTutorLaboral());
+			BigDecimal horasRestantes = horasTotales.subtract(horasRealizadas);
+			BigDecimal porcentaje = horasRealizadas.multiply(new BigDecimal(100)).divide(horasTotales, 2,
+					RoundingMode.HALF_UP);
+			lblHorasPorRealizar.setText(horasRestantes.toString() + " horas");
+			lblHorasRealizadas.setText(horasRealizadas + " horas  " + porcentaje + "%");
+			lblHorasTotal.setText(horasTotales.toString() + " horas");
+			lblNombre.setText(alumno.getNombreCompleto());
+			lblTutorDecente.setText(alumno.getEmpresa().getNombreTutorLaboral());
 		} catch (ApiException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

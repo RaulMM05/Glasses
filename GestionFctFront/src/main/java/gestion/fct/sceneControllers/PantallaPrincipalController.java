@@ -5,41 +5,40 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.layout.BorderPane;
 
-public class PantallaPrincipalController extends AppController{
+public class PantallaPrincipalController extends AppController {
 
-    @FXML
-    private BorderPane panel;
-    
-    public void initialize(){
-    	addParam("panel", panel);
-    }
-
-  
 	@FXML
-    void lanzarAltaRegistro(ActionEvent event) {
-    	panel.setCenter(loadScene(FXML_ALTAREGISTRO));
-    	
-    }
+	private BorderPane panel;
 
-    @FXML
-    void lanzarCerrarApp(ActionEvent event) {
-    	salir();
-    }
+	public void initialize() {
+		addParam("panel", panel);
+	}
 
-    @FXML
-    void lanzarDetallesRegistro(ActionEvent event) {
-    	panel.setCenter(loadScene(FXML_DETALLESREGISTRO));
-    }
+	@FXML
+	void lanzarAltaRegistro(ActionEvent event) {
+		panel.setCenter(loadScene(FXML_ALTAREGISTRO));
 
-    @FXML
-    void lanzarLogin(ActionEvent event) {
-    	changeScene(FXML_LOGIN);
-    }
+	}
 
-    @FXML
-    void lanzarPerfil(ActionEvent event) {
-    	panel.setCenter(loadScene(FXML_PERFIL));
-    	
-    }
+	@FXML
+	void lanzarCerrarApp(ActionEvent event) {
+		salir();
+	}
+
+	@FXML
+	void lanzarDetallesRegistro(ActionEvent event) {
+		panel.setCenter(loadScene(FXML_DETALLESREGISTRO));
+	}
+
+	@FXML
+	void lanzarLogin(ActionEvent event) {
+		changeScene(FXML_LOGIN);
+	}
+
+	@FXML
+	void lanzarPerfil(ActionEvent event) {
+		panel.setCenter(loadScene(FXML_PERFIL));
+
+	}
 
 }

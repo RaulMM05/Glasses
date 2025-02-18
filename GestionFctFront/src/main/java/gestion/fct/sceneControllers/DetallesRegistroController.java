@@ -57,11 +57,11 @@ public class DetallesRegistroController extends AppController {
 			return new SimpleObjectProperty<>(null);
 		});
 		tcDescripcion.setCellValueFactory(cellData -> {
-		    String descripcion = cellData.getValue().getDescripcion();
-		    if (descripcion != null && descripcion.length() > 20) {
-		        descripcion = descripcion.substring(0, 20) + "...";  
-		    }
-		    return new SimpleStringProperty(descripcion);
+			String descripcion = cellData.getValue().getDescripcion();
+			if (descripcion != null && descripcion.length() > 20) {
+				descripcion = descripcion.substring(0, 20) + "...";
+			}
+			return new SimpleStringProperty(descripcion);
 		});
 
 		datos = FXCollections.observableArrayList();

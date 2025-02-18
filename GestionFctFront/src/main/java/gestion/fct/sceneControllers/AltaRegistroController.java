@@ -18,56 +18,56 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 
-public class AltaRegistroController extends AppController{
+public class AltaRegistroController extends AppController {
 	DateTimeFormatter formatoFecha = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-    @FXML
-    private Button btnCancelar;
+	@FXML
+	private Button btnCancelar;
 
-    @FXML
-    private Button btnGuardar;
+	@FXML
+	private Button btnGuardar;
 
-    @FXML
-    private DatePicker dpFecha;
+	@FXML
+	private DatePicker dpFecha;
 
-    @FXML
-    private TextArea taDescripcion;
+	@FXML
+	private TextArea taDescripcion;
 
-    @FXML
-    private TextField tfCantidadDeHoras;
-    
-    private BorderPane panel;
-    
-    @Override
-    public void initialize() {
-    	panel = (BorderPane) getParam("panel");
-    }
-    	
-    
+	@FXML
+	private TextField tfCantidadDeHoras;
 
-    @FXML
-    void cancelar(ActionEvent event) {
-    	panel.setCenter(loadScene(FXML_DETALLESREGISTRO));
-    }
+	private BorderPane panel;
 
+	@Override
+	public void initialize() {
+		panel = (BorderPane) getParam("panel");
+	}
 
-    @FXML
-    void guardar(ActionEvent event) {
-    	Alumno alumno = (Alumno) getParam("alumno");
-    	RegistroRequest registro = new RegistroRequest();
-    	Fecha fecha = new Fecha();
-    	BigDecimal horas = new BigDecimal(tfCantidadDeHoras.getText());
-    	LocalDate fechaNueva = dpFecha.getValue();
-    	fecha.setFecha(fechaNueva);
-    	registro.setHoras(horas);
-    	registro.setDescripcion(taDescripcion.getText());
-    	registro.setFecha(fecha);
-    	registro.setAlumno(alumno);
-    	try {
+	@FXML
+	void cancelar(ActionEvent event) {
+		panel.setCenter(loadScene(FXML_DETALLESREGISTRO));
+	}
+
+	@FXML
+	void guardar(ActionEvent event) {
+		Alumno alumno = (Alumno) getParam("alumno");
+		RegistroRequest registro = new RegistroRequest();
+		Fecha fecha = new Fecha();
+		BigDecimal horas = new BigDecimal(tfCantidadDeHoras.getText());
+		LocalDate fechaNueva = dpFecha.getValue();
+		fecha.setFecha(fechaNueva);
+		fecha.setEvaluacion(alumno.getEvaluación());
+		fecha.setAñoCurso(alumno.getAño());
+		fecha.setId();
+		registro.setHoras(horas);
+		registro.setDescripcion(taDescripcion.getText());
+		registro.setFecha(fecha);
+		registro.setAlumno(alumno);
+		try {
 			cliente.crearRegistro(registro);
 		} catch (ApiException e) {
-			error(e.getResponseBody());
+			error(e.getLocalizedMessage());
 		}
-    	panel.setCenter(loadScene(FXML_DETALLESREGISTRO));
-    }
+		panel.setCenter(loadScene(FXML_DETALLESREGISTRO));
+	}
 
 }

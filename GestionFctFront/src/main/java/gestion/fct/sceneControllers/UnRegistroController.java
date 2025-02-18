@@ -12,49 +12,48 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 
-public class UnRegistroController extends AppController{
+public class UnRegistroController extends AppController {
 
-    @FXML
-    private Button btnBorrar;
+	@FXML
+	private Button btnBorrar;
 
-    @FXML
-    private Button btnCancelar1;
+	@FXML
+	private Button btnCancelar1;
 
-    @FXML
-    private TextArea taDescripcion;
+	@FXML
+	private TextArea taDescripcion;
 
-    @FXML
-    private TextField tfCantidadDeHoras;
+	@FXML
+	private TextField tfCantidadDeHoras;
 
-    @FXML
-    private TextField tfFecha;
-    
-    private BorderPane panel;
-    private Registro registro;
-    
-    @Override
-    public void initialize() {
-    	panel = (BorderPane) getParam("panel");
-    	registro = (Registro) getParam("registro");
-    	tfFecha.setText(registro.getFecha().getFecha().toString());
-    	tfCantidadDeHoras.setText(registro.getHoras().toString());
-    	taDescripcion.setText(registro.getDescripcion());
-    }
+	@FXML
+	private TextField tfFecha;
 
-    @FXML
-    void cancelar(ActionEvent event) {
-    	panel.setCenter(loadScene(FXML_DETALLESREGISTRO));
-    }
+	private BorderPane panel;
+	private Registro registro;
 
-    @FXML
-    void borrarRegistro(ActionEvent event) {
-    	try {
+	@Override
+	public void initialize() {
+		panel = (BorderPane) getParam("panel");
+		registro = (Registro) getParam("registro");
+		tfFecha.setText(registro.getFecha().getFecha().toString());
+		tfCantidadDeHoras.setText(registro.getHoras().toString());
+		taDescripcion.setText(registro.getDescripcion());
+	}
+
+	@FXML
+	void cancelar(ActionEvent event) {
+		panel.setCenter(loadScene(FXML_DETALLESREGISTRO));
+	}
+
+	@FXML
+	void borrarRegistro(ActionEvent event) {
+		try {
 			cliente.borrarRegistro(registro.getId());
 		} catch (ApiException e) {
 			error(e.getResponseBody());
 		}
-    	cancelar(event);
-    }
+		cancelar(event);
+	}
 
 }
-
