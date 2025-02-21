@@ -9,14 +9,14 @@
    <top>
       <MenuBar styleClass="menu" BorderPane.alignment="CENTER">
         <menus>
-          <Menu mnemonicParsing="false" styleClass="subMenu" text="Usuario">
+          <Menu mnemonicParsing="false" style="-fx-background-color: transparent;" styleClass="subMenu" text="Usuario">
             <items>
               <MenuItem mnemonicParsing="false" onAction="#lanzarPerfil" styleClass="item" text="Perfil usuario" />
                   <MenuItem mnemonicParsing="false" onAction="#lanzarDetallesRegistro" styleClass="item" text="Detalles del registro" />
                   <MenuItem mnemonicParsing="false" onAction="#lanzarAltaRegistro" styleClass="item" text="Alta registro" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" styleClass="subMenu" text="Salir">
+          <Menu mnemonicParsing="false" style="-fx-background-color: transparent;" styleClass="subMenu" text="Salir">
             <items>
               <MenuItem mnemonicParsing="false" onAction="#lanzarLogin" styleClass="item" text="Cerrar sesión" />
                   <MenuItem mnemonicParsing="false" onAction="#lanzarCerrarApp" styleClass="item" text="Cerrar aplicación" />

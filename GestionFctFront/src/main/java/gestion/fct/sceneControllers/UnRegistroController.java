@@ -7,53 +7,69 @@ import gestion.fct.appController.AppController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class UnRegistroController extends AppController {
 
-	@FXML
-	private Button btnBorrar;
+    private static final Logger logger = LoggerFactory.getLogger(UnRegistroController.class);
 
-	@FXML
-	private Button btnCancelar1;
+    @FXML
+    private Button btnBorrar;
 
-	@FXML
-	private TextArea taDescripcion;
+    @FXML
+    private Button btnCancelar1;
 
-	@FXML
-	private TextField tfCantidadDeHoras;
+    @FXML
+    private TextArea taDescripcion;
 
-	@FXML
-	private TextField tfFecha;
+    @FXML
+    private TextField tfCantidadDeHoras;
 
-	private BorderPane panel;
-	private Registro registro;
+    @FXML
+    private TextField tfFecha;
 
-	@Override
-	public void initialize() {
-		panel = (BorderPane) getParam("panel");
-		registro = (Registro) getParam("registro");
-		tfFecha.setText(registro.getFecha().getFecha().toString());
-		tfCantidadDeHoras.setText(registro.getHoras().toString());
-		taDescripcion.setText(registro.getDescripcion());
-	}
+    private BorderPane panel;
+    private Registro registro;
 
-	@FXML
-	void cancelar(ActionEvent event) {
-		panel.setCenter(loadScene(FXML_DETALLESREGISTRO));
-	}
+    @Override
+    public void initialize() {
+        logger.info("Inicializando vista de un registro");
+        panel = (BorderPane) getParam("panel");
+        registro = (Registro) getParam("registro");
+        if (registro != null) {
+            logger.info("Cargando datos del registro ID: {}", registro.getId());
+            tfFecha.setText(registro.getFecha().getFecha().toString());
+            tfCantidadDeHoras.setText(registro.getHoras().toString());
+            taDescripcion.setText(registro.getDescripcion());
+        } else {
+            logger.warn("No se encontró un registro para cargar");
+        }
+    }
 
-	@FXML
-	void borrarRegistro(ActionEvent event) {
-		try {
-			cliente.borrarRegistro(registro.getId());
-		} catch (ApiException e) {
-			error(e.getResponseBody());
-		}
-		cancelar(event);
-	}
+    @FXML
+    void cancelar(ActionEvent event) {
+        logger.info("Cancelando y regresando a detalles de registros");
+        panel.setCenter(loadScene(FXML_DETALLESREGISTRO));
+    }
 
+    @FXML
+    void borrarRegistro(ActionEvent event) {
+        if (registro != null) {
+            try {
+                logger.info("Intentando borrar registro ID: {}", registro.getId());
+                cliente.borrarRegistro(registro.getId());
+                logger.info("Registro ID: {} eliminado con éxito", registro.getId());
+            } catch (ApiException e) {
+                logger.error("Error al borrar el registro ID: {}", registro.getId(), e);
+                error(e.getResponseBody());
+            }
+        } else {
+            logger.warn("Intento de borrar un registro nulo");
+        }
+        cancelar(event);
+    }
 }

@@ -24,6 +24,6 @@
       <Label layoutX="195.0" layoutY="228.0" styleClass="titulos" text="Descripcion" />
       <TextArea fx:id="taDescripcion" editable="false" layoutX="195.0" layoutY="256.0" prefHeight="69.0" prefWidth="222.0" styleClass="campoTa" />
       <Button fx:id="btnCancelar1" layoutX="170.0" layoutY="342.0" mnemonicParsing="false" onAction="#cancelar" prefHeight="47.0" prefWidth="128.0" styleClass="botones" text="Cancelar" />
-      <Button fx:id="btnBorrar" layoutX="309.0" layoutY="342.0" mnemonicParsing="false" onAction="#borrarRegistro" prefHeight="47.0" prefWidth="128.0" styleClass="botones" text="Borrar" />
+      <Button fx:id="btnBorrar" layoutX="309.0" layoutY="342.0" mnemonicParsing="false" onAction="#borrarRegistro" prefHeight="47.0" prefWidth="128.0" styleClass="cancelar" text="Borrar" />
    </children>
 </AnchorPane>

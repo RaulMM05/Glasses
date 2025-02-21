@@ -1,34 +1,38 @@
 /* Estilo general de fondo */
 .fondo {
-    -fx-background-color: #e3ecf3;
+    -fx-background-color: #e3ecf3; /* Gris-azulado claro */
 }
 
 /* Estilo de la barra de menú */
 .menu {
-    -fx-background-color: #42a5f5; /* Azul más claro */
-    -fx-font-size: 14px; /* Tamaño original del texto */
+    -fx-background-color: linear-gradient(to right, #0d47a1 1%, #42a5f5 50%, #0d47a1 99%);
+    -fx-font-size: 14px;
     -fx-font-weight: bold;
-    -fx-text-fill: white;
 }
 
 /* Estilo del menú principal */
 .subMenu {
-    -fx-background-color: #42a5f5; /* Azul más claro */
-    -fx-font-size: 14px; /* Tamaño original del texto */
+    -fx-background-color: transparent; /* Eliminamos el fondo */
+    -fx-font-size: 14px;
     -fx-font-weight: bold;
     -fx-text-fill: white;
+}
+
+/* Para evitar que el hover tenga un fondo sólido */
+.subMenu:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.1); /* Ligero cambio al pasar el mouse */
 }
 
 /* Estilo de los items del menú */
 .item {
     -fx-background-color: transparent;
-    -fx-text-fill: #f4f9fd;
-    -fx-padding: 8px 15px; /* Tamaño original de padding */
+    -fx-text-fill: #f4f9fd; /* Color claro para los textos */
+    -fx-padding: 8px 15px; /* Padding original */
 }
 
 /* Efecto hover en los items del menú */
 .item:hover {
-    -fx-background-color: #64b5f6; /* Azul aún más claro para el hover */
+    -fx-background-color: linear-gradient(to right, #0d47a1 1%, #42a5f5 50%, #0d47a1 99%); /* Azul más claro para hover */
     -fx-text-fill: white;
 }
 
@@ -36,30 +40,7 @@
 .titulo {
     -fx-font-size: 23px;
     -fx-font-weight: bold;
-    -fx-text-fill: #1c3550;
+    -fx-text-fill: #1c3550; /* Color oscuro para los títulos */
     -fx-font-family: "Arial";
 }
 
-/* Estilo para los botones */
-.botones {
-    -fx-background-color: linear-gradient(to right, #42a5f5 1%, #64b5f6 50%, #42a5f5 99%); /* Azul claro en gradiente */
-    -fx-text-fill: white;
-    -fx-font-size: 16px;
-    -fx-font-weight: bold;
-    -fx-padding: 10px 15px;
-    -fx-background-radius: 8px;
-    -fx-border-radius: 8px;
-    -fx-border-color: transparent;
-    -fx-cursor: hand;
-    -fx-effect: dropshadow(three-pass-box, rgba(30, 136, 229, 0.3), 5, 0, 0, 2);
-}
-
-/* Efecto hover en botones */
-.botones:hover {
-    -fx-background-color: linear-gradient(to right, #42a5f5 1%, #64b5f6 50%, #42a5f5 99%);
-}
-
-/* Efecto clic en botones */
-.botones:pressed {
-    -fx-background-color: #42a5f5; /* Azul claro para el estado pressed */
-}

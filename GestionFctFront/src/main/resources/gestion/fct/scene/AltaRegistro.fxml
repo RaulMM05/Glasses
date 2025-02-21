@@ -24,7 +24,7 @@
       <Spinner fx:id="spinHoras" layoutX="193.0" layoutY="181.0" prefHeight="25.0" prefWidth="222.0" styleClass="campoTf" />
       <Label layoutX="195.0" layoutY="230.0" styleClass="titulos" text="Descripcion" />
       <TextArea fx:id="taDescripcion" layoutX="195.0" layoutY="258.0" prefHeight="69.0" prefWidth="222.0" styleClass="campoTa" />
-      <Button fx:id="btnCancelar" layoutX="170.0" layoutY="342.0" mnemonicParsing="false" onAction="#cancelar" prefHeight="47.0" prefWidth="128.0" styleClass="botones" text="Cancelar" />
+      <Button fx:id="btnCancelar" layoutX="170.0" layoutY="342.0" mnemonicParsing="false" onAction="#cancelar" prefHeight="47.0" prefWidth="128.0" styleClass="cancelar" text="Cancelar" />
       <Button fx:id="btnGuardar" layoutX="309.0" layoutY="342.0" mnemonicParsing="false" onAction="#guardar" prefHeight="47.0" prefWidth="128.0" styleClass="botones" text="Guardar" />
    </children>
 </AnchorPane>

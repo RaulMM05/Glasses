@@ -53,6 +53,7 @@ public class UsuarioService {
 			if (Boolean.FALSE.equals(usuario.getActivo())) {
 				throw new UserServiceException("El usuario no está disponible");
 			}
+			
 			if (usuario.getTipo().equals(Usuario.ALUMNO)) {
 				repoAlumno.findById(usuario.getIdPerfil())
 						.orElseThrow(() -> new UserServiceException("No hay ningun alumno asociado a este usuario"));

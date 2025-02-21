@@ -40,7 +40,7 @@
     -fx-text-fill: #333;
 }
 
-/* Botones con gradiente */
+/* Botón principal con gradiente */
 .botones {
     -fx-background-color: linear-gradient(to right, #0d47a1 1%, #42a5f5 50%, #0d47a1 99%);
     -fx-text-fill: white;
@@ -56,12 +56,36 @@
 
 /* Efecto hover en botones */
 .botones:hover {
-    -fx-background-color: linear-gradient(to right, #0d47a1 1%, #42a5f5 50%, #0d47a1 99%);
+    -fx-background-color: linear-gradient(to right, #08306b 1%, #1e88e5 50%, #08306b 99%);
 }
 
 /* Efecto clic en botones */
 .botones:pressed {
     -fx-background-color: #0d47a1;
+}
+
+/* Botón de cancelar con gradiente en tonos rojos */
+.cancelar {
+    -fx-background-color: linear-gradient(to right, #b71c1c 1%, #e53935 50%, #b71c1c 99%);
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-padding: 10px 15px;
+    -fx-background-radius: 8px;
+    -fx-border-radius: 8px;
+    -fx-border-color: transparent;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(three-pass-box, rgba(229, 57, 53, 0.3), 5, 0, 0, 2);
+}
+
+/* Efecto hover en botón cancelar */
+.cancelar:hover {
+    -fx-background-color: linear-gradient(to right, #7f0000 1%, #d32f2f 50%, #7f0000 99%);
+}
+
+/* Efecto clic en botón cancelar */
+.cancelar:pressed {
+    -fx-background-color: #b71c1c;
 }
 
 /* Campos de contraseña */

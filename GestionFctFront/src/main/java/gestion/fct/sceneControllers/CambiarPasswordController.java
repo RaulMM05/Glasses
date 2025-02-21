@@ -1,5 +1,7 @@
 package gestion.fct.sceneControllers;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.model.Alumno;
@@ -14,49 +16,56 @@ import javafx.scene.layout.BorderPane;
 
 public class CambiarPasswordController extends AppController {
 
-	@FXML
-	private Button btnGuardar;
+    private static final Logger LOGGER = Logger.getLogger(CambiarPasswordController.class.getName());
 
-	@FXML
-	private Button btnPerfil;
+    @FXML
+    private Button btnGuardar;
 
-	@FXML
-	private PasswordField tpActual;
+    @FXML
+    private Button btnPerfil;
 
-	@FXML
-	private PasswordField tpConfirmacion;
+    @FXML
+    private PasswordField tpActual;
 
-	@FXML
-	private PasswordField tpNueva;
+    @FXML
+    private PasswordField tpConfirmacion;
 
-	private BorderPane panel;
+    @FXML
+    private PasswordField tpNueva;
 
-	@Override
-	public void initialize() {
-		panel = (BorderPane) getParam("panel");
-	}
+    private BorderPane panel;
 
-	@FXML
-	void guardarPassword(ActionEvent event) {
-		Alumno alumno = (Alumno) getParam("alumno");
-		if (!tpNueva.getText().equals(tpConfirmacion.getText())) {
-			error("Las contreña nueva no coincide");
-		} else {
-			ChangePasswordRequest change = new ChangePasswordRequest();
-			change.setOldPassword(DigestUtils.sha256Hex(tpActual.getText()));
-			change.setNewPassword(DigestUtils.sha256Hex(tpNueva.getText()));
-			try {
-				cliente.cambiarPassword(alumno.getId(), change);
-			} catch (ApiException e) {
-				error(e.getResponseBody());
-			}
-			lanzarPerfil(event);
-		}
-	}
+    @Override
+    public void initialize() {
+        panel = (BorderPane) getParam("panel");
+        LOGGER.info("CambiarPasswordController inicializado");
+    }
 
-	@FXML
-	void lanzarPerfil(ActionEvent event) {
-		panel.setCenter(loadScene(FXML_PERFIL));
-	}
+    @FXML
+    void guardarPassword(ActionEvent event) {
+        Alumno alumno = (Alumno) getParam("alumno");
+        if (!tpNueva.getText().equals(tpConfirmacion.getText())) {
+            LOGGER.warning("Las contraseñas no coinciden");
+            error("La contraseña nueva no coincide");
+        } else {
+            ChangePasswordRequest change = new ChangePasswordRequest();
+            change.setOldPassword(DigestUtils.sha256Hex(tpActual.getText()));
+            change.setNewPassword(DigestUtils.sha256Hex(tpNueva.getText()));
+            try {
+                LOGGER.info("Intentando cambiar la contraseña para el alumno ID: " + alumno.getId());
+                cliente.cambiarPassword(alumno.getId(), change);
+                LOGGER.info("Contraseña cambiada con éxito para el alumno ID: " + alumno.getId());
+            } catch (ApiException e) {
+                LOGGER.log(Level.SEVERE, "Error al cambiar la contraseña", e);
+                error(e.getResponseBody());
+            }
+            lanzarPerfil(event);
+        }
+    }
 
+    @FXML
+    void lanzarPerfil(ActionEvent event) {
+        LOGGER.info("Redirigiendo al perfil");
+        panel.setCenter(loadScene(FXML_PERFIL));
+    }
 }
