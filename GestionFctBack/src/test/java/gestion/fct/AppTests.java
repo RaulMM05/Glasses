@@ -34,7 +34,7 @@ class AppTests {
 
     @BeforeEach
     void initCliente() throws UserNotFoundException, UserUnauthorizedException, UserServiceException, AlumnoNotFoundException {
-        usuario = service.login("Pepe", "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4");
+        usuario = service.login("Abel Morillo", "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4");
         fecha1 = new Fecha(48L, LocalDate.of(2025, 4, 7), 2024, "MARZO");
         fecha2 = new Fecha(49L, LocalDate.of(2025, 6, 8), 2024, "MARZO");
         alumno = service.consultarAlumno(1L);
