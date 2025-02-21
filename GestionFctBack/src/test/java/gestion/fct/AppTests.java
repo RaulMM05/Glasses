@@ -35,8 +35,8 @@ class AppTests {
     @BeforeEach
     void initCliente() throws UserNotFoundException, UserUnauthorizedException, UserServiceException, AlumnoNotFoundException {
         usuario = service.login("Pepe", "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4");
-        fecha1 = new Fecha(48L, LocalDate.of(2025, 5, 7), 2024, "MARZO");
-        fecha2 = new Fecha(49L, LocalDate.of(2025, 5, 8), 2024, "MARZO");
+        fecha1 = new Fecha(48L, LocalDate.of(2025, 4, 7), 2024, "MARZO");
+        fecha2 = new Fecha(49L, LocalDate.of(2025, 6, 8), 2024, "MARZO");
         alumno = service.consultarAlumno(1L);
     }
 
@@ -117,15 +117,15 @@ class AppTests {
         Registro registro = new Registro();
         registro.setAlumno(alumno);
         registro.setDescripcion("Prueba error");
-        registro.setFecha(fecha1);  // Fecha ya existente en otro registro
+        registro.setFecha(new Fecha(49L, LocalDate.of(2025, 5, 8), 2024, "MARZO"));  
         registro.setHoras(new BigDecimal(4));
 
         assertThrows(RegistroServiceException.class, () -> service.crearRegistro(registro));
 
-        registro.setHoras(new BigDecimal(9));  // Número de horas inválido
+        registro.setHoras(new BigDecimal(9));  
         assertThrows(RegistroServiceException.class, () -> service.crearRegistro(registro));
 
-        registro.setHoras(new BigDecimal(0));  // Número de horas inválido
+        registro.setHoras(new BigDecimal(0)); 
         assertThrows(RegistroServiceException.class, () -> service.crearRegistro(registro));
     }
 
